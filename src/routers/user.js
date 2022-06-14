@@ -322,7 +322,7 @@ router.post("/forgot", async (req,res)=>{
         const link = `http://localhost:3000/reset/${result[0]._id}/${token}`;
         // console.log(`Link : http://localhost:3000/reset/${result[0]._id}/${token}`);
         // console.log(link);
-        res.render("link", {LINK: link, EMAIL: email});
+        res.render("link", {LINK: link, EMAIL: email, SERVICE_ID: process.env.SERVICE_ID, TEMPLATE_ID: process.env.TEMPLATE2_ID});
         
         // res.send("Reset link has been generated and has been sent to your associated email account...");
 
