@@ -90,8 +90,8 @@ app.get("/reset", (req,res)=>{
 app.use(userRouter);
 app.use(postRouter);
 
-
-app.listen(3000,function(){
+const port = 3000 ||process.env.PORT;
+app.listen(port,function(){
     console.log("server is running on port 3000");
 })
 
