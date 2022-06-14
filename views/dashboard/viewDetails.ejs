@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Details | WiseMeal</title>
+    <link rel="stylesheet" href="./viewDetails.css">
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="view-details-head" id="heading"><%= heading %></div>
+    <div class="view-details-container" id="view-details-container">
+
+
+        <!-- <div class="view-details-box">
+            <div class="food-name"> Chicken Biriyani </div>
+            <div class="details">
+                <div class="left">
+                    <div class="sugar">
+                        <span class="ques"> Sugar : </span>
+                        <span class="ans" id="sugarVal"> 0 </span>
+                    </div>
+                    <div class="fiber">
+                        <span class="ques"> Fiber : </span>
+                        <span class="ans" id="fiberVal"> 0 </span>
+                    </div>
+                    <div class="sodium">
+                        <span class="ques"> Sodium : </span>
+                        <span class="ans" id="sodiumVal"> 0 </span>
+                    </div>
+                    <div class="potassium">
+                        <span class="ques"> Potassium : </span>
+                        <span class="ans" id="potassiumVal"> 0 </span>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="fat">
+                        <span class="ques"> Fat : </span>
+                        <span class="ans" id="fatVal"> 0 </span>
+                    </div>
+                    <div class="cholesterol">
+                        <span class="ques"> Cholesterol : </span>
+                        <span class="ans" id="cholesterolVal"> 0 </span>
+                    </div>
+                    <div class="protein">
+                        <span class="ques"> Protein : </span>
+                        <span class="ans" id="proteinVal"> 0 </span>
+                    </div>
+                    <div class="carbohydrate">
+                        <span class="ques"> Carbohydrate : </span>
+                        <span class="ans" id="carbVal"> 0 </span>
+                    </div>
+                </div>
+            </div>
+            <div class="calories">
+                <span class="ques"> Calories :</span>
+                <span class="ans" id="caloriesVal"> 0 </span>
+            </div>
+        </div> -->
+
+
+
+    </div>
+
+
+
+    <script>
+        const viewDetailsContainer = document.getElementById("view-details-container");
+        const heading = document.getElementById("heading");
+        var headName = (heading.innerHTML).trim();
+        var myQuery;
+
+        const breakfastData = fetch("/apiquery").then((result) => {
+            return result.json();
+        }).then((result) => {
+
+
+            if (headName == "Breakfast") {
+                myQuery = result.bstring;
+            }
+            else if (headName == "Lunch") {
+                myQuery = result.lstring;
+            }
+            else {
+                myQuery = result.dstring;
+            }
+
+
+            const breakfast_data = fetch(`https://api.calorieninjas.com/v1/nutrition?query=${myQuery}`, {
+                headers: {
+                    "X-Api-Key": "oqpQLmlpuN2SXve05QEOHQ==JWERaM32taFXs2QM"
+                }
+            }).then((result) => {
+                return result.json();
+            }).then((results) => {
+                var Items = results.items;
+                Items.forEach((item) => {
+                    console.log(item);
+
+                    const viewDetailsBox = document.createElement("div");
+                    viewDetailsBox.classList.add("view-details-box");
+
+                    const foodName = document.createElement("div");
+                    foodName.classList.add("food-name");
+                    foodName.innerHTML = (item.name).toUpperCase();
+                    viewDetailsBox.appendChild(foodName);
+
+                    const details = document.createElement("div");
+                    details.classList.add("details");
+                    viewDetailsBox.appendChild(details)
+
+                    const left = document.createElement("div");
+                    left.classList.add("left");
+                    details.appendChild(left);
+
+                    const sugar = document.createElement("div");
+                    const ques1 = document.createElement("span");
+                    ques1.classList.add("ques");
+                    ques1.innerHTML = "Sugar : ";
+                    sugar.appendChild(ques1);
+                    const ans1 = document.createElement("span");
+                    ans1.classList.add("ans");
+                    ans1.innerHTML = item.sugar_g + "g";
+                    sugar.appendChild(ans1);
+                    left.appendChild(sugar);
+
+                    const fiber = document.createElement("div");
+                    const ques2 = document.createElement("span");
+                    ques2.classList.add("ques");
+                    ques2.innerHTML = "Fiber : ";
+                    fiber.appendChild(ques2);
+                    const ans2 = document.createElement("span");
+                    ans2.classList.add("ans");
+                    ans2.innerHTML = item.fiber_g + "g";
+                    fiber.appendChild(ans2);
+                    left.appendChild(fiber);
+
+                    const sodium = document.createElement("div");
+                    const ques3 = document.createElement("span");
+                    ques3.classList.add("ques");
+                    ques3.innerHTML = "Sodium : ";
+                    sodium.appendChild(ques3);
+                    const ans3 = document.createElement("span");
+                    ans3.classList.add("ans");
+                    ans3.innerHTML = item.sodium_mg + "mg";
+                    sodium.appendChild(ans3);
+                    left.appendChild(sodium);
+
+                    const potassium = document.createElement("div");
+                    const ques4 = document.createElement("span");
+                    ques4.classList.add("ques");
+                    ques4.innerHTML = "Potassium : ";
+                    potassium.appendChild(ques4);
+                    const ans4 = document.createElement("span");
+                    ans4.classList.add("ans");
+                    ans4.innerHTML = item.potassium_mg + "mg";
+                    potassium.appendChild(ans4);
+                    left.appendChild(potassium);
+
+
+
+                    const right = document.createElement("div");
+                    right.classList.add("right");
+                    details.appendChild(right);
+
+                    const fat = document.createElement("div");
+                    const ques5 = document.createElement("span");
+                    ques5.classList.add("ques");
+                    ques5.innerHTML = "Fat : ";
+                    fat.appendChild(ques5);
+                    const ans5 = document.createElement("span");
+                    ans5.classList.add("ans");
+                    ans5.innerHTML = item.fat_total_g + "g";
+                    fat.appendChild(ans5);
+                    right.appendChild(fat);
+
+                    const cholesterol = document.createElement("div");
+                    const ques6 = document.createElement("span");
+                    ques6.classList.add("ques");
+                    ques6.innerHTML = "Cholesterol : ";
+                    cholesterol.appendChild(ques6);
+                    const ans6 = document.createElement("span");
+                    ans6.classList.add("ans");
+                    ans6.innerHTML = item.cholesterol_mg + "mg";
+                    cholesterol.appendChild(ans6);
+                    right.appendChild(cholesterol);
+
+                    const protein = document.createElement("div");
+                    const ques7 = document.createElement("span");
+                    ques7.classList.add("ques");
+                    ques7.innerHTML = "Protein : ";
+                    protein.appendChild(ques7);
+                    const ans7 = document.createElement("span");
+                    ans7.classList.add("ans");
+                    ans7.innerHTML = item.protein_g + "g";
+                    protein.appendChild(ans7);
+                    right.appendChild(protein);
+
+                    const carbs = document.createElement("div");
+                    const ques8 = document.createElement("span");
+                    ques8.classList.add("ques");
+                    ques8.innerHTML = "Carbohydrate : ";
+                    carbs.appendChild(ques8);
+                    const ans8 = document.createElement("span");
+                    ans8.classList.add("ans");
+                    ans8.innerHTML = item.carbohydrates_total_g + "g";
+                    carbs.appendChild(ans8);
+                    right.appendChild(carbs);
+
+                    const calories = document.createElement("div");
+                    calories.classList.add("calories");
+                    const ques9 = document.createElement("span");
+                    ques9.classList.add("ques");
+                    ques9.innerHTML = "Calories : ";
+                    calories.appendChild(ques9);
+                    const ans9 = document.createElement("span");
+                    ans9.classList.add("ans");
+                    ans9.innerHTML = item.calories + "cal";
+                    calories.appendChild(ans9);
+                    viewDetailsBox.appendChild(calories);
+
+
+
+                    viewDetailsContainer.appendChild(viewDetailsBox);
+                })
+
+
+            }).catch((err) => {
+                console.log(err);
+            })
+
+
+
+
+        }).catch((err) => {
+            console.log(err);
+        })
+
+        // }
+        // else if(headName === "Lunch"){
+        //     console.log("This is Lunch");
+        // }
+        // else{
+        //     console.log("This is Dinner");
+        // }
+
+
+    </script>
+
+
+</body>
+
+</html>

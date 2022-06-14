@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stories | WiseMeal</title>
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./dashboard/stories.css">
+</head>
+<body style="background-color:aliceblue;">
+    
+
+    <div class="view-story-container">
+        <div class="view-story-head">
+            <img src="./static/fantasy.png" alt="">
+            <h3>Your Stories</h3>
+        </div>
+
+        <div class="stories-collection" id="stories-collection">
+
+            
+            <!-- <div class="story-box">
+                <div class="story-subject">2 dine 30kg bariye felechi</div>
+                <div class="story-description">Hii guys... This is Arindam Halder ...I want to share my weight losing
+                    story with all of u... 3days ago I had decided to start dieting and avoid junk foods. That time, my
+                    weight was 60kgs. Now I am of 90kgs.</div>
+                <div class="view-author">
+                    <div class="view-icon"> <img src="./static/ellipsis.png" alt=""> </div>
+                    <div class="author">
+                        <img src="./static/bin.png" alt="">
+                    </div>
+                </div>
+            </div> -->
+                 
+        </div>
+    
+
+
+
+        <script>
+            const storyCollection = document.getElementById("stories-collection");
+
+            const myStories = fetch("/post/me").then((result) => {
+                return result.json();
+            }).then((results) => {
+
+                results.forEach((result) => {
+                    const storyBox = document.createElement("div");
+                    storyBox.classList.add("story-box");
+
+                    const storySubject = document.createElement("div");
+                    storySubject.classList.add("story-subject");
+                    storySubject.innerHTML = result.subject;
+                    storyBox.appendChild(storySubject);
+
+                    const storyDescription = document.createElement("div");
+                    storyDescription.classList.add("story-description");
+                    storyDescription.innerHTML = result.story;
+                    storyBox.appendChild(storyDescription);
+
+                    const viewAuthor = document.createElement("div");
+                    viewAuthor.classList.add("view-author");
+
+                    const viewIcon = document.createElement("div");
+                    viewIcon.classList.add("view-icon");
+
+                    const a = document.createElement("a");
+                    // a.href = "/fullstory";
+                    a.href = `/posts/${result._id}`;
+                    const ellipsisImg = document.createElement("img");
+                    ellipsisImg.src = "./static/ellipsis.png";
+                    a.appendChild(ellipsisImg);
+                    viewIcon.appendChild(a);
+                    viewAuthor.appendChild(viewIcon);
+
+                    const authorDiv = document.createElement("div");
+                    authorDiv.classList.add("author");
+
+                    const binImg = document.createElement("img");
+                    binImg.src = "./static/bin.png";
+                    authorDiv.appendChild(binImg);
+                    viewAuthor.appendChild(authorDiv);
+                    storyBox.appendChild(viewAuthor);
+
+                    storyCollection.appendChild(storyBox);
+
+
+
+
+
+                    binImg.addEventListener("click", () => {
+
+                        const deletedStory = fetch(`/posts/${result._id}`, {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json"
+                            }
+                        }).then((data) => {
+                            location.reload(true);
+                        }).catch((err) => {
+                            console.log(err);
+                        })
+                    })
+
+
+
+
+                })
+
+
+
+            }).catch((err) => {
+                console.log(err);
+            })
+        </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+.workhere
+{
+    padding-top: 100px;
+}
+.header
+{
+    margin-top: 30px;
+    display:flex;
+    justify-content: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.mainbody
+{
+    padding: 20px 20px;
+    /* background-color: aliceblue; */
+}
+.mainbody .current
+{
+    background-color: aliceblue;
+    display:flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+}
+.currheight, .currbmi, .currweight, .targetweight
+{
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    /* padding: 10px 10px; */
+    box-shadow: 3px 3px 10px 1px rgb(105, 104, 104);
+
+    /* border: 1px solid black; */
+}
+.currheight:hover, .currbmi:hover, .currweight:hover, .targetweight:hover{
+    transform: scale(1.1);
+}
+.currheader , .twheader
+{
+    /* border: 1px solid black; */
+    padding:10px 10px;
+    background-color: rgb(89, 160, 223);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .85rem;
+    color:white;
+    text-align: center;
+}
+.height , .bmi, .weight, .tw{
+    padding: 15px 0px;
+    display:flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.tw{
+    padding: 10px 0px;
+    font-size: 1.8rem; 
+    color: chartreuse;
+}
+/* middlepart============================ */
+.middlepart
+{
+    background-color: aliceblue;
+    padding: 20px 10px;
+    display:flex;
+    /* flex-direction: column; */
+    margin-top: 30px;
+    justify-content: center;
+}
+.formcontainer
+{
+    padding: 10px 25px;
+    margin-right: 20px;
+}
+.inpdesign
+{
+    display:flex;
+    flex-direction: column;
+    font-weight: 600;
+    /* color:blue; */
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: flex-end;
+}
+input{
+    margin-left: 5px;
+    padding: 5px 5px;
+}
+
+.timeinput , .weightinput
+{
+    margin-bottom: 5px;
+    /* padding: 5px 5px */
+}
+.range
+{
+    /* background-color: white; */
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight:900;
+    color:rgb(69, 58, 223);
+    font-size: 2rem;
+    margin-left: 20px;
+    text-shadow: 1px 1px rgb(105, 104, 104); 
+}
+.rangedata
+{
+    color:rgb(41, 33, 161); 
+}
+.msg
+{
+    display:flex;
+    justify-content: center;
+    background-color: aliceblue;
+    font-size: 1.5rem;
+    padding: 10px 0px;
+    padding-bottom: 20px;
+}
+.msgval
+{
+    font-weight: 900;
+    font-size: 1.8rem;
+}
+
+@media (min-width:750px) and (max-width: 1040px){
+    .mainbody .current
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px 10px;
+        
+    }
+    .mainbody .current div{
+        width: 300px;
+        margin-bottom: 20px;
+
+        /* margin-right: 20px; */
+    }
+    .currheader, .twheader {
+        width: 93.6% !important;
+        /* border: 3px solid red; */
+    }
+    .rangeheader{
+        font-size: 1.7rem;
+    }
+}
+@media (min-width:440px) and (max-width: 750px){
+    .mainbody .current
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+    }
+    .mainbody .current div{
+        width: 300px;
+        margin-bottom: 30px;
+
+        /* margin-right: 20px; */
+    }
+    .currheader, .twheader {
+        width: 93.5% !important;
+        /* border: 3px solid red; */
+        font-size: 1rem;
+    }
+    .rangeheader{
+        margin-top: 30px;
+        font-size: 1.9rem;
+    }
+    .middlepart{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media (max-width:440px){
+    .header{
+        font-size: 1.7rem;
+    }
+    .mainbody .current
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        
+    }
+    .mainbody .current div{
+        width: 260px;
+        margin-bottom: 30px;
+
+        /* margin-right: 20px; */
+    }
+    .currheader, .twheader {
+        width: 92.7% !important;
+        /* border: 3px solid red; */
+        font-size: 1rem;
+    }
+    .rangeheader{
+        margin-top: 30px;
+        font-size: 1.2rem;
+    }
+    .middlepart{
+        flex-direction: column;
+        align-items: center;
+    }
+    .timeinput input, .weightinput input{
+        width: 100px !important;
+    }
+    .timeinput , .weightinput{
+        font-size: .8rem;
+    }
+    .formcontainer
+    {
+        padding: 10px 5px;
+        margin-right: 20px;
+    }
+    .inpdesign {
+        margin-top: 10px;
+    }
+    .msg{
+        font-size: 1.1rem;
+    }
+    .msgval{
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,382 @@
+.workhere
+{
+    padding-top: 100px;
+}
+.bodyheader
+{
+    display:flex;
+    justify-content: center;
+    margin-top: 30px;
+    font-weight:bolder;
+    font-size: 2.5rem;
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.mainbody
+{
+    display:flex;
+    flex-direction:column;
+    padding: 30px 20px;
+}
+.mainbody .bld
+{
+    display:flex;
+    margin-bottom: 50px;
+    justify-content: center;
+    background-color: rgb(178, 215, 248);
+    background-color: aliceblue;
+    padding: 20px 20px;
+}
+.bld .breakfast,.lunch,.dinner
+{
+    display:flex;
+    flex-direction: column;
+    border:1px solid rgb(148, 147, 147);
+    border-radius: 12px;
+    background-color: aliceblue;
+    background-color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+form input{
+    width: 20vw;
+}
+.breakfastheader, .lunchheader, .dinnerheader
+{
+    font-weight: 700;
+    margin-bottom: 17px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.4rem;
+    display: flex;
+}
+.bheaderimg
+{
+    /* margin-left: 3px; */
+    margin-right: 3px;
+    font-size: 0.3rem;
+}
+.bheaderimg img
+{
+height: 25px;
+}
+.bformcontainer form, .lformcontainer form, .dformcontainer form
+{
+margin-bottom: 10px;
+display:flex;
+
+}
+form input{
+    padding: 5px 3px;
+}
+.insightheader
+{
+    font-weight:600;
+    margin-bottom: 4px;
+}
+.dataset-view{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btotal, .ltotal, .dtotal
+{
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+.view-data{
+    margin-right: 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.view-data img:active{
+    transform: scale(.97);
+}
+.view-data img{
+    height: 30px;
+    margin-top: 10px;
+}
+.del{
+    height: 22px !important;
+}
+.breakfastmsg, .lunchmsg, .dinnermsg
+{
+    display:flex;
+    justify-content: center;
+    font-style:italic;
+    margin-bottom: 10px;
+    display:flex;
+}
+.bemomsg, .lemomsg, .demomsg{
+    margin-left: 5px;
+}
+.bemomsg img, .lemomsg img, .demomsg img
+{
+    font-size: 0.5;
+    height: 18px;
+}
+.dataset
+{
+    color:burlywood;
+    font-weight: 600;
+}
+/* ============Today's food log========================= */
+
+.totalmeal
+{
+    background-color: aliceblue;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+}
+.totalmealheader
+{
+    font-size: 2rem;
+    /* padding: 20px 20px; */
+    font-weight: 900;
+    margin-bottom: 20px;
+    color:rgb(19, 19, 123);
+    display:flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.totimg img{
+    font-size: 0.5rem;
+    height:36px;
+    
+}
+.totimg{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.totaldataset
+{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-weight: 400;
+    font-size: 1.5rem;
+    box-shadow: 3px 3px 10px 1px rgb(105, 104, 104);
+}
+.totheader{
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+.totalmsg
+{
+    margin-top: 30px;
+    font-size: 1.4rem;
+    font-style: italic;
+    display:flex;
+}
+.totalemomsg
+{
+    margin-left: 5px;
+}
+.totalemomsg img{
+    font-size: 0.5rem;
+    height: 30px;
+}
+.datachart
+{
+    margin-left: 150px;
+}
+.textchart
+{
+    font-size: 1.1rem;
+    font-weight:600;
+
+}
+.chartdiv
+{
+    padding: 5px 3px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.carbval{
+    color:rgb(180, 209, 17);
+
+}
+.fatval
+{
+    color:rgb(218, 230, 7);
+}
+.proteinval
+{
+    color:red;
+}
+.fibreval
+{
+    color:red;
+}
+.calval
+{
+  color:red;  
+}
+.totaldata{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px;
+}
+.totcal
+{
+    margin-top: 15px;
+    font-weight: 900;
+}
+/* =====weekly graph======================================= */
+.weeklygraph
+{
+   margin-top: 30px; 
+   background-color: aliceblue;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.weeklygraph .weeklygraphheader
+{
+    display:flex;
+    justify-content: center;
+    font-size: 2rem;
+    /* padding: 20px 20px; */
+    font-weight: 900;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color:rgb(19, 19, 123);
+    display:flex;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+.weeklygraph .totimg 
+{
+    margin-right: 10px;
+    /* padding-bottom: 2px; */
+}
+.weeklygraph .totimg img{
+    height: 30px;
+}
+.progress{
+    width: 300px;
+}
+
+
+
+
+@media(min-width: 400px) and (max-width: 840px){
+    .mainbody .bld
+    {
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .bld .breakfast,.lunch,.dinner
+    {
+        padding: 10px 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 15px;
+    }
+}
+
+@media(min-width: 620px) and (max-width: 900px){
+    .totaldata{
+        font-size: 1.2rem;
+        margin-bottom: 23px;
+        margin-top: 20px;
+        width: 160px;
+    }
+    .datachart
+    {
+        width: 320px;
+        margin-left: 20px;
+    }
+    form input{
+        width: 30vw;
+    }
+}
+@media(min-width: 840px) and (max-width:1100px){
+    form input{
+        width: 20vw;
+    }
+}
+@media(max-width: 620px){
+    .mainbody .bld
+    {
+        display:grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .bld .breakfast,.lunch,.dinner
+    {
+        padding: 10px 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 15px;
+    }
+    .totaldataset
+    {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px 15px;
+        font-weight: 400;
+        font-size: 1.5rem;
+        box-shadow: 3px 3px 10px 1px rgb(105, 104, 104);
+    }
+    .totaldata{
+        font-size: 1.2rem;
+        margin-bottom: 23px;
+        margin-top: 20px;
+    }
+    .datachart
+    {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    form input{
+        width: 65vw;
+    }
+    .totalmsg
+    {
+        margin-top: 20px;
+        font-size: 1rem;
+    }
+}
+@media (max-width: 385px){
+    .bodyheader
+    {    
+        font-size: 1.8rem;
+    }
+    .totalmealheadertext{
+        font-size: 1.5rem;
+    }
+    .weeklytextheader{
+        font-size: 1.5rem;
+    }
+    .totaldataset
+    {
+        padding: 10px 15px;
+        font-size: 1.5rem;
+        width: 260px;
+    }
+    .progress{
+        width: 230px;
+    }
+    .totaltextmsg{
+        /* font-size: 1.2rem; */
+    }
+    .totalmsg
+    {
+        margin-top: 20px;
+        font-size: .9rem;
+    }
+    .totalemomsg img{
+        font-size: 0.5rem;
+        height: 20px;
+    }
+}

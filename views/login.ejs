@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN | WiseMeal</title>
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+
+
+    <!-- NavBar1 ================================================= -->
+    <%- include('../partials/nav1.ejs') %>
+
+
+    <!-- SignUp - Login ========================================== -->
+    <div id="container" style=" padding-top: 30px; flex-direction: column;">
+        <div id="form-box" style="margin-bottom: 20px;">
+            <div id="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-button" onclick="login()">Log In</button>
+                <button type="button" class="toggle-button" onclick="signup()">Sign Up</button>
+            </div>
+
+            <!-- login form =============== -->
+            <form id="login" class="input-space" method="post" action="/users/login">
+                <input type="text" class="input-field-login" placeholder="Enter your email id" required name="email">
+                <input type="password" class="input-field-login" placeholder="Enter your password" required name="pass">
+                <p id="acc">Don't have an account? <button type="button" class="su-button" onclick="signup()">Sign
+                        Up</button></p>
+                <button type="submit" class="login-button" style="margin-top: 100px;">Log In</button>
+                <a href="/forgot" class="forgot-password"> <p>Forgot your password?</p> </a>
+            </form>
+
+            <!-- sign up form ===========  -->
+            <form id="signup" class="input-space" method="post" action="/users" onsubmit="return handleSubmit(event);">
+                <input type="text" class="input-field" placeholder="Enter your full name" required name="fullname"
+                    id="name">
+                <input type="text" class="input-field" placeholder="Enter your mobile number" required name="phone">
+                <input type="email" class="input-field" placeholder="Enter your e-mail id" required name="email"
+                    id="email">
+
+                <div class="account-gender">
+                    <p>Gender:</p>
+                    <p>Male
+                        <input type="radio" name="gender" value="male" required>
+                    </p>
+                    <p>Female
+                        <input type="radio" name="gender" value="female" required>
+                    </p>
+                    <!-- <p>Others -->
+                        <!-- <input type="radio" name="gender" value="others" required> -->
+                    <!-- </p> -->
+                </div>
+
+                <div class="dob-div">
+                    <div class="dob">
+                        <p>DOB:</p>
+                        <input type="date" name="dob" required>
+                    </div>
+                </div>
+                <div class="dob-div">
+                    <div class="dob">
+                        <p>Activity:</p>
+                        <select name="activity" id="activity-div-select">
+                            <option value="sedentary">Sedentary</option>
+                            <option value="lightlyActive">Lightly active </option>
+                            <option value="moderatelyActive">Moderately active</option>
+                            <option value="active">Active</option>
+                            <option value="veryActive">Very active</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- .half-left-input-field-login -->
+                <div class="height-weight">
+                    <input type="text" class="half-left-input-field-login" placeholder="Height (in cm)" required name="height">
+
+                    <input type="text" class="half-right-input-field-login" placeholder="Weight (in kg)" required name="weight">
+                </div>
+
+
+                <input type="password" id="passkey" class="input-field" placeholder="Enter your password" required
+                    name="password">
+                <input type="password" class="input-field" placeholder="Confirm password" onkeyup="confirm(this)"
+                    required name="cpassword">
+                <div class="error-box">
+                    <error style="font-size: 11px; color:red; margin-left: 10px" id="alert"></error>
+                </div>
+                <div class="checkbox-terms-box">
+                    <div class="terms-box">
+                        <p>
+                            <input type="checkbox" class="my-check-box" required>
+                        </p>
+
+                        <p class="read-terms">I read and agree to
+                            <a href="" style="text-decoration: none; font-weight: 600;">Terms & Conditions</a>
+                        </p>
+                    </div>
+                </div>
+                <button type="submit" class="submit-button" id="signupButton">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer ======================================================= -->
+
+    <%- include('../partials/footer.ejs') %>
+    
+
+
+
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("signup");
+        var z = document.getElementById("btn");
+        function signup() {
+            x.style.left = "-400px";
+            y.style.left = "5px";
+            z.style.left = "110px";
+        }
+        function login() {
+            x.style.left = "5px";
+            y.style.left = "400px";
+            z.style.left = "0px";
+        }
+        var pass = document.getElementById('passkey')
+        var flag = true;
+        function confirm(e) {
+            if (e.value.length > 0) {
+                if (e.value != pass.value) {
+                    document.getElementById('alert').innerText = "Confirmed password does not match"
+                    flag = false
+                }
+                else {
+                    document.getElementById('alert').innerText = ""
+                    flag = true
+                }
+            }
+            else {
+                document.getElementById('alert').innerText = "Please enter the password again"
+                flag = false;
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        const signupButton = document.getElementById("signupButton");
+        const signupForm = document.getElementById("signup");
+        function handleSubmit(e) {
+            // e.preventDefault();
+            console.log(e);
+            const pass = e.srcElement[9].value;
+            console.log(pass);
+            const cpass = e.srcElement[10].value;
+            console.log(cpass);
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+            if (pass !== cpass) {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Password and confirm password does not match'
+                })
+                return false;
+            }
+            else if (pass.match(/[a-z]/g) && pass.match(/[A-Z]/g) && pass.match(/[0-9]/g) && pass.match(/[^a-zA-Z\d]/g) && pass.length >= 6) {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Signed up successfully'
+                })
+                // send email to users at the time of signing up
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const data = {
+                    name, email
+                }
+                const url = '/sEmail';
+                const Params = {
+                    headers: {
+                        "content-type": "application/json; charset=UTF-8"
+                    },
+                    body: JSON.stringify(data),
+                    method: "POST"
+                }
+                fetch(url, Params)
+                    .then(data => { return data.json() })
+                    .then(res => { console.log(res) })
+                    .catch(err => { console.log(err) })
+                return true;
+            }
+            else {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Password should contain: \n  atleast 1 lowercase \n   atleast 1 uppercase \n   atleast 1 number \n   atleast 1 special character \n    min length: 6'
+                })
+                return false;
+            }
+        }
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+
+
+
+</body>
+
+</html>

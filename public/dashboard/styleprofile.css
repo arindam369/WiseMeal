@@ -1,0 +1,143 @@
+.profile-container{
+    height:90vh;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right:0px;
+    display:flex;
+    padding: 50px 80px;
+    justify-content: center;
+    background-image: linear-gradient(rgb(236, 240, 243),rgb(195, 206, 241));
+}
+.mainbody
+{
+    display:flex;
+    background-color: white;
+    box-shadow: 3px 3px 10px 1px rgb(116, 112, 112);
+    /* height: 500px; */
+    margin-top: 100px;
+}
+
+.onlyname
+{
+    padding: 80px 80px;
+    background-color: rgb(143, 202, 250);
+    display:flex;
+    flex-direction: column;
+    box-shadow: 3px 3px 10px 1px rgb(105, 104, 104);
+}
+.onlyname .profimg{
+    margin-bottom: 20px;
+    margin-left: 22px;
+    /* box-shadow: 3px 3px 10px 1px; */
+}
+.onlyname .profimg img
+{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px 1px;
+}
+.name{
+    font-size: 1.4rem;
+    color:rgb(27, 49, 149);
+    font-weight: 900;
+
+}
+.belowname
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0px;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+/* otherinfo right side============================================ */
+.otherinfo
+{
+    padding: 16px 15px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    /* border: 1px solid black;  */
+}
+/* right side top================================ */
+.otherinfo .info{
+margin-bottom: 45px;
+margin-top: 0px;
+}
+.info .infoheader
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color:rgb(27, 49, 149);
+}
+/* Bottom part============================== */
+.otherdata .otherheader
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color:rgb(27, 49, 149);
+
+}
+.infoheader , .otherheader{
+    display:flex;
+}
+.headerimg img{
+    font-size: 0.5rem;
+    height:20px;
+    margin-right: 5px;
+}
+.bmi
+{
+    display:flex;
+}
+.bmivalue
+{
+    color:rgb(15, 191, 12);
+    margin-left: 2px;
+}
+
+@media (min-width: 360px) and (max-width: 765px){
+    .profile-container{
+        height: 118vh;
+        padding: 50px 0px;
+    }
+    .mainbody{
+        flex-direction: column;
+    }
+    .otherinfo{
+        padding: 10px 0px;
+        justify-content: center;
+        /* align-items: center; */
+        margin-left: 30px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .onlyname{
+        padding: 80px 80px;
+    }
+}
+@media (max-width: 360px){
+    .profile-container{
+        height: 112vh;
+        padding: 50px 10px;
+    }
+    .mainbody{
+        flex-direction: column;
+        /* padding-right: 5px;; */
+    }
+    .otherinfo{
+        justify-content: center;
+        /* align-items: center; */
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .onlyname{
+        padding: 50px 50px;
+    }
+}

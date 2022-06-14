@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | WiseMeal</title>
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!-- <link rel="stylesheet" href="sweetalert2.min.css"> -->
+
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="./dashboard/settingsstyle.css">
+</head>
+
+
+<body>
+
+    <!-- navbar1============================= -->
+    <%- include('../../partials/nav1.ejs') %>
+
+
+        <!-- navbar2=============================== -->
+        <%- include('../../partials/nav2.ejs') %>
+
+            <!-- main work===================== -->
+            
+            <div class="workhere">
+                <div class="mainbody">
+                    <div class="firstform">
+                        <form action="/user/me/avatar" method="post" enctype="multipart/form-data">
+                            <!-- <div>
+                                <input type="file" id="pimage" name="Avatar" capture>
+                                <button type="submit">Upload</button>
+                            </div> -->
+                            <div class="profileupload">
+                                <div class="profilepic"><img src="./static/dashboard/download.png" alt="image"
+                                        id="profileimage"></div>
+                                <input type="file" name="Avatar" id="pimage" capture required>
+                                <button type="submit">Upload</button>
+                            </div>
+                        </form>
+
+                        <form action="" id="firstform">
+                            <!-- <div class="profileupload">
+                                <div class="profilepic"><img src="./static/dashboard/download (1).jpg" alt="image"
+                                        id="profileimage"></div>
+                                <input type="file" name="profilephoto" id="pimage" capture>
+                            </div> -->
+
+                            <div class="textform">
+                                <div class="n">
+                                    <div class="name">Name: <input type="text" name="name" id="name"></div>
+                                    <div class="mobile">Phone: <input type="text" name="mobile" id="mobile"></div>
+
+
+                                    <div class="height">Height(in cm): <input type="number" name="height" id="height">
+                                    </div>
+
+                                    <div class="gender">Gender: <select name="gender" id="gender">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female </option>
+
+                                        </select></div>
+                                </div>
+
+                                <div class="n">
+                                    <div class="dob">DOB: <input type="date" name="dob" id="dob"></div>
+                                    <div class="city">City: <input type="text" name="city" id="city"></div>
+                                    <div class="weight">Weight(in Kg): <input type="number" name="weight" id="weight">
+                                    </div>
+                                    <!-- <div class="activity">Activity level: <input type="text" name="" id="" value="sedentary"></div> -->
+                                    <div class="activity">Activity level:
+                                        <select name="activity" id="activity">
+                                            <option value="sedentary">Sedentary</option>
+                                            <option value="lightlyActive">Lightly active </option>
+                                            <option value="moderatelyActive">Moderately active</option>
+                                            <option value="active">Active</option>
+                                            <option value="veryActive">Very active</option>
+                                        </select>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <button type="submit">Submit</button>
+
+
+                        </form>
+                    </div>
+
+                    <!-- password part -->
+
+                    <div class="password">
+                        <div class="passheader">Wish to change your password?</div>
+                        <form id="secondform" action="">
+                            <div class="old">Current password: <input type="password" required></div>
+                            <div class="new">New password: <input type="password" required></div>
+                            <div class="confirm">Confirm password: <input type="password" required></div>
+                            <button type="submit">submit</button>
+                        </form>
+                    </div>
+
+                    <div class="deleteAccount">
+                        <p class="delHead">Delete Your Account ?</p>
+                        <p class="delDesc">Once you delete your account, there is no going back. Please be certain.</p>
+                        <div class="delAcc">
+                            <button id="deleteAccount-button">
+                                Delete Your Account
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="deleteAccount">
+                        <p class="delHead">Logout of all sessions ?</p>
+                        <p class="delDesc">This will log you out of WiseMeal from every device that you're currently
+                            logged in on.</p>
+                        <div class="logAcc">
+                            <a href="/logoutAll">
+                                <button id="logoutAll-button">
+                                    Logout of all sessions
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <!-- <script src="sweetalert2.min.js"></script> -->
+
+            <script>
+                $("#profileimage").click(function (e) {
+                    $("#pimage").click();
+                });
+                function fasterPreview(uploader) {
+                    if (uploader.files && uploader.files[0]) {
+                        $('#profileimage').attr('src',
+                            window.URL.createObjectURL(uploader.files[0]));
+                    }
+                }
+
+                $("#pimage").change(function () {
+                    fasterPreview(this);
+                });
+
+            </script>
+            <script>
+
+                const firstform = document.getElementById("firstform");
+                const secondform = document.getElementById("secondform");
+                const namedef = document.getElementById("name");
+                const citydef = document.getElementById("city");
+                const genderdef = document.getElementById("gender");
+                const heightdef = document.getElementById("height");
+                const weightdef = document.getElementById("weight");
+                const dobdef = document.getElementById("dob");
+                const activitydef = document.getElementById("activity");
+                const mobiledef = document.getElementById("mobile");
+
+                const deleteAccountButton = document.getElementById("deleteAccount-button");
+                const logoutAllButton = document.getElementById("logoutAll-button");
+                const dp = document.getElementById("profileimage");
+
+
+
+                const heightWeight_data = fetch("/user/me").then((result) => {
+                    return result.json();
+                }).then((result) => {
+                    namedef.value = result.fullname;
+                    if (result.city) {
+                        citydef.value = result.city;
+                    }
+                    genderdef.value = result.gender;
+                    heightdef.value = result.height;
+                    weightdef.value = result.weight;
+                    dobdef.value = result.dob;
+                    activitydef.value = result.activity;
+                    mobiledef.value = result.phone;
+
+
+
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+
+                    const avatarImage = fetch(`/users/${result._id}/avatar`).then((result)=>{
+                        dp.src = result.url;
+                    })
+
+
+
+
+
+                    firstform.addEventListener("submit", function (e) {
+                        e.preventDefault();
+                        var name = e.srcElement[0].value;
+                        // console.log(name);
+                        var mobile = e.srcElement[1].value;
+                        var heightv = e.srcElement[2].value;
+                        var genderv = e.srcElement[3].value;
+
+                        var dobv = e.srcElement[4].value;
+                        var cityv = e.srcElement[5].value;
+                        var weightv = e.srcElement[6].value;
+                        var activityv = e.srcElement[7].value;
+
+                        console.log(e);
+
+
+                        const updatesettings_data = fetch(`/users/${result._id}`, {
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                fullname: name,
+                                phone: mobile,
+                                height: heightv,
+                                gender: genderv,
+                                dob: dobv,
+                                city: cityv,
+                                weight: weightv,
+                                activity: activityv
+                            })
+                        })
+
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Updated successfully'
+                        })
+
+                    })
+
+                    secondform.addEventListener("submit", function (e) {
+                        e.preventDefault();
+
+                        var oldp = e.srcElement[0].value;
+                        var newp = e.srcElement[1].value;
+                        var confp = e.srcElement[2].value;
+
+                        if (newp != confp) {
+                            // alert("Confirm your password correctly");
+
+                            Toast.fire({
+                                icon: 'error',
+                                title: 'Confirm your password correctly'
+                            })
+                        }
+                        else {
+
+
+                            const isThisOldUser = fetch("/user/isOldUser", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify({ "email": result.email, "pass": oldp })
+                            }).then((res) => {
+                                return res.json();
+                            }).then((data) => {
+                                const updatedUser_pass = fetch(`/users/${result._id}`, {
+                                    method: "PATCH",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({ "password": newp })
+                                }).then(res => res.json())
+                                    .then((data) => {
+                                        console.log("password has been changed successfully");
+                                        Toast.fire({
+                                            icon: 'success',
+                                            title: 'Updated successfully'
+                                        })
+                                    }).catch((err) => {
+                                        console.log(err);
+                                    })
+                            }).catch((error) => {
+                                return Toast.fire({
+                                    icon: 'error',
+                                    title: "Incorrect password"
+                                })
+                            })
+
+
+
+                        }
+                    })
+
+                    deleteAccountButton.addEventListener("click", () => {
+
+                        Swal.fire({
+                            title: 'Delete Your Account',
+                            text: "Are you sure you want to permanantly delete your Account?",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#d33',
+                            cancelButtonColor: '#3085d6',
+                            confirmButtonText: 'Yes, Delete it!'
+                        }).then((data) => {
+
+                            if (data.isConfirmed) {
+                                const deletedAccount = fetch(`/users/${result._id}`, {
+                                    method: "DELETE"
+                                })
+                                location.href = "/login";
+                            }
+                        })
+                    })
+
+
+
+                }).catch((err) => {
+                    console.log(err);
+                })
+
+
+
+
+
+            </script>
+
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<nav>
+    <div class="navBar2">
+
+        <div class="swiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <a href="/profile">
+                        <li> Your Profile </li>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="/track">
+                        <li> Track Your Meals </li>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="/goals">
+                        <li> Set Your Goals </li>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="/stories">
+                        <li> Stories </li>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="/settings">
+                        <li> Settings </li>
+                    </a>
+                </div>
+            </div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+
+
+<script>
+    const swiper = new Swiper('.swiper', {
+        // Default parameters
+        slidesPerView: 1,
+        spaceBetween: 0,
+        // Responsive breakpoints
+        breakpoints: {
+            // when window width is >= 330px
+            330: {
+                slidesPerView: 2,
+                spaceBetween: 0
+            },
+            // when window width is >= 450px
+            450: {
+                slidesPerView: 3,
+                spaceBetween: 0
+            },
+            // when window width is >= 650px
+            650: {
+                slidesPerView: 4,
+                spaceBetween: 0
+            }
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 10000,
+            disableOnInteraction: true,
+        }
+    })
+</script>

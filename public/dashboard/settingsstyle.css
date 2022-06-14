@@ -1,0 +1,224 @@
+.workhere
+{
+    padding-top: 80px;
+}
+.mainbody
+{
+    padding: 80px 20px 20px;
+    /* border: 1px solid black; */
+    display:flex;
+     flex-direction: column;
+     align-items: center;
+     background-color: aliceblue;
+     
+}
+.firstform
+{
+    background-color:white;
+    padding: 20px;
+    font-weight: 900;
+}
+#pimage
+{
+    display:none;
+    /* cursor:pointer; */
+    
+}
+.profileupload {
+    align-items: center;
+}
+.profileupload button{
+    height: 30px;
+    margin-left: 50px;
+}
+#profileimage
+{
+    cursor:pointer;
+    /* box-shadow: 3px 3px 10px 1px rgb(105, 104, 104); */
+}
+.profilepic {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    box-shadow: 3px 3px 8px 1px rgb(105, 104, 104);
+}
+.profilepic img {
+    width: 150px;
+    height: 150px;
+}
+.profileupload
+{
+    /* border:1px solid black; */
+    padding: 25px 0px;
+    display:flex;
+    justify-content: center;
+    /* background-color: white; */
+}
+.firstform form{
+    margin-top: 15px;
+    /* background-color: white; */
+}
+.textform
+{
+    padding: 5px 20px;
+    display:flex;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+}
+.n{
+    padding: 15px;
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+}
+.textform{
+    /* justify-content: right; */
+    justify-content:right;
+    /* border: 1px solid black; */
+    align-items: flex-end;
+}
+.n div{
+    margin: 5px 0px;
+} 
+.firstform form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.firstform button{
+    padding: 5px 15px
+}
+      /* ==password==================================== */
+.password, .deleteAccount
+{
+    margin-top: 20px;
+    font-weight: 900;
+    background-color: white;
+    padding:25px
+}
+.passheader
+{
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+.password form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 5px;
+}
+input{
+    padding: 5px;
+    margin-left: 4px;
+}
+.password form div{
+    margin-bottom: 8px; 
+}
+input[type="date"]{
+    width: 162px;
+    margin-left: 4px;
+}
+
+.activity select{
+    padding: 5px 45px;
+}
+
+.deleteAccount{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.delHead{
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-size: 1.3rem;
+}
+.delDesc{
+    text-align: center;
+    color: rgb(97, 97, 97);
+    font-weight: 100;
+    font-size: .8rem;
+    margin-top: 2px;
+    margin-bottom: 20px;
+}
+.deleteAccount button{
+    padding: 6px 18px;
+    color: #d9534f;
+    outline: none;
+    /* border: 0px; */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    border: 1px solid rgb(154, 154, 154);
+    border-radius: 8px;
+}
+.deleteAccount button:hover{
+    background-color: #d9534f;
+    color: white;
+}
+.deleteAccount button:active{
+    transform: scale(.98);
+}
+.logAcc button{
+    color: #0275d8;
+}
+.logAcc button:hover{
+    background-color: #4999df;
+    color: white;
+}
+
+
+@media(min-width: 300px) and (max-width : 810px){
+    .textform{
+        flex-direction: column;
+    }
+    .textform .n{
+        margin-bottom: 0px;
+        margin-top: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+
+    }
+}
+@media (max-width: 475px){
+    .textform{
+        flex-direction: column;
+        padding: 5px 0px;
+        font-size: .85rem;
+    }
+    .textform .n{
+        margin-bottom: 0px;
+        margin-top: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+
+    }
+    input[type="date"]{
+        width: 110px;
+        margin-left: 4px;
+    }
+    select{
+        width: 124px;
+    }
+    input{
+        width: 110px;
+    }
+    .mainbody{
+        padding: 5px 0px;
+    }
+}
+@media (max-width: 380px){
+    .passheader{
+        font-size: 1.15rem;
+    }
+    .old, .new, .confirm{
+        font-size: .9rem;
+    }
+}

@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Food | WiseMeal</title>
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="./dashboard/style.css">
+</head>
+
+<body>
+    <!-- navbar1============================= -->
+    <%- include('../../partials/nav1.ejs') %>
+
+
+        <!-- navbar2=============================== -->
+        <%- include('../../partials/nav2.ejs') %>
+
+
+            <!-- main work===================== -->
+            <div class="workhere">
+                <div class="bodyheader">
+                    TRACK YOUR FOOD
+                </div>
+                <div class="mainbody">
+                    <!-- breakfast lunch and dinner -->
+                    <div class="bld">
+                        <!-- breakfast -->
+                        <div class="breakfast">
+                            <div class="breakfastheader">
+                                <div class="bheaderimg">
+                                    <img src="./static/dashboard/english-breakfast.png" alt="image">
+                                </div>
+                                <div class="bheadertext">
+                                    Breakfast
+                                </div>
+                                <!-- <div class="bheaderimg"> -->
+                                <!-- <img src="./english-breakfast.png" alt="image" > -->
+                                <!-- </div> -->
+
+                            </div>
+                            <div class="bformcontainer">
+                                <form action="" id="bform">
+                                    <div class="textinput">
+                                        <input type="text" class="bform" placeholder="Enter meal along with quantity"
+                                            name="breakfastinput">
+                                    </div>
+
+                                    <button type="submit">+</button>
+
+                                </form>
+                            </div>
+                            <div class="breakfastdata" id="breakfastdata">
+
+
+                            </div>
+                            <div class="breakfastsum">
+                                <div class="insightheader">
+                                    Insights:
+                                </div>
+                                <div class="dataset-view">
+                                    <div class="dataset">
+                                        <div class="bcomponents">
+                                            <div class="breakfastcarbs" id="breakfastcarbs">
+
+                                            </div>
+                                            <div class="bfats" id="breakfastfats">
+
+                                            </div>
+                                            <div class="bproteins" id="breakfastproteins">
+
+                                            </div>
+                                            <div class="bfibre" id="breakfastfibre">
+
+                                            </div>
+                                        </div>
+                                        <div class="btotal" id="breakfasttotal">
+
+                                        </div>
+                                    </div>
+                                    <div class="view-data">
+                                        <a href="/bViewData">
+                                            <img src="./static/seo.png" alt="" title="View">
+                                        </a>
+                                        <img src="./static/bin.png" alt="" class="del" id="bResetBtn" title="Reset">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="breakfastmsg">
+                                <div class="btextmsg" id="btextmsg"></div>
+                                <div class="bemomsg"><img id="bemomsg"></div>
+
+                            </div>
+
+                        </div>
+                        <!-- lunch -->
+                        <div class="lunch">
+                            <div class="lunchheader">
+                                <div class="bheaderimg">
+                                    <img src="./static/dashboard/meal.png" alt="image">
+                                </div>
+                                <div class="lheadertext">
+                                    Lunch
+                                </div>
+                                <!-- <div class="bheaderimg"> -->
+                                <!-- <img src="./meal.png" alt="image" > -->
+                                <!-- </div> -->
+
+                            </div>
+                            <div class="lformcontainer">
+                                <form action="" id="lform">
+                                    <input type="text" class="lform" placeholder="Enter meal along with quantity"
+                                        name="lunchinput">
+                                    <button type="submit">+</button>
+
+                                </form>
+                            </div>
+                            <div class="lunchdata" id="lunchdata">
+
+
+                            </div>
+                            <div class="lunchsum">
+                                <div class="insightheader">
+                                    Insights:
+                                </div>
+                                <div class="dataset-view">
+                                    <div class="dataset">
+                                        <div class="lcomponents">
+                                            <div class="lcarbs" id="lunchcarbs">
+
+                                            </div>
+                                            <div class="lfats" id="lunchfats">
+
+                                            </div>
+                                            <div class="lproteins" id="lunchproteins">
+
+                                            </div>
+                                            <div class="lfibre" id="lunchfibre">
+
+                                            </div>
+                                        </div>
+                                        <div class="ltotal" id="lunchtotal">
+
+                                        </div>
+                                    </div>
+                                    <div class="view-data">
+                                        <a href="/lViewData">
+                                            <img src="./static/seo.png" alt="" title="View">
+                                        </a>
+                                        <img src="./static/bin.png" alt="" class="del" id="lResetBtn" title="Reset">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lunchmsg">
+                                <div class="ltextmsg" id="ltextmsg"></div>
+                                <div class="lemomsg"><img id="lemomsg"></div>
+                            </div>
+
+                        </div>
+                        <!-- dinner -->
+                        <div class="dinner">
+                            <div class="dinnerheader">
+                                <div class="bheaderimg">
+                                    <img src="./static/dashboard/christmas-dinner.png" alt="image">
+                                </div>
+                                <div class="dheadertext">Dinner</div>
+                                <!-- <div class="bheaderimg"> -->
+                                <!-- <img src="./christmas-dinner.png" alt="image" > -->
+                                <!-- </div> -->
+
+                            </div>
+                            <div class="dformcontainer">
+                                <form action="" id="dform">
+                                    <input type="text" class="dform" placeholder="Enter meal along with quantity"
+                                        name="dinnerinput">
+                                    <button type="submit">+</button>
+
+                                </form>
+                            </div>
+                            <div class="dinnerdata" id="dinnerdata">
+
+
+                            </div>
+                            <div class="dinnersum">
+                                <div class="insightheader">
+                                    Insights:
+                                </div>
+                                <div class="dataset-view">
+                                    <div class="dataset">
+                                        <div class="dcomponents">
+                                            <div class="dcarbs" id="dinnercarbs">
+
+                                            </div>
+                                            <div class="dfats" id="dinnerfats">
+
+                                            </div>
+                                            <div class="dproteins" id="dinnerproteins">
+
+                                            </div>
+                                            <div class="dfibre" id="dinnerfibre">
+
+                                            </div>
+                                        </div>
+                                        <div class="dtotal" id="dinnertotal">
+
+                                        </div>
+                                    </div>
+                                    <div class="view-data">
+                                        <a href="/dViewData">
+                                            <img src="./static/seo.png" alt="" title="View">
+                                        </a>
+                                        <img src="./static/bin.png" alt="" class="del" id="dResetBtn" title="Reset">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dinnermsg">
+                                <div class="dtextmsg" id="dtextmsg"></div>
+                                <div class="demomsg"><img id="demomsg"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- total meal  -->
+                    <div class="totalmeal">
+                        <div class="totalmealheader">
+                            <div class="totimg"><img src="./static/dashboard/calculator-removebg-preview.png"
+                                    alt="image"></div>
+                            <div class="totalmealheadertext">Today's food log</div>
+                            <!-- <div class="totimg"><img src="./calculator-removebg-preview.png" alt="image"></div> -->
+                        </div>
+                        <div class="totaldataset">
+                            <div class="totaldata">
+
+
+                                <div class="totcarb" id="totcarb">
+
+                                </div>
+                                <div class="totfat" id="totfat">
+
+                                </div>
+                                <div class="totproteins" id="totproteins">
+
+                                </div>
+                                <div class="totfibre" id="totfibre">
+
+                                </div>
+                                <div class="totcal" id="totcal">
+
+                                </div>
+
+                            </div>
+                            <div class="datachart">
+                                <div class="chartheader">
+                                    <div class="chartdiv">
+                                        <div class="textchart">Carbohydrates</div>
+                                        <div class="progress"
+                                            style="height: 10px; background-color: rgb(231, 213, 248);">
+                                            <div class="progress-bar" id="carbsbar" role="progressbar"
+                                                style="height : 100%;" aria-valuenow="25" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="carbval" id="carbval"></div>
+                                    </div>
+
+                                    <div class="chartdiv">
+                                        <div class="textchart">Fats</div>
+                                        <div class="progress"
+                                            style="height: 10px; background-color: rgb(231, 213, 248);">
+                                            <div class="progress-bar" id="fatsbar" role="progressbar"
+                                                style=" height:100%;" aria-valuenow="25" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="fatval" id="fatval"></div>
+                                    </div>
+
+                                    <div class="chartdiv">
+                                        <div class="textchart">Proteins</div>
+                                        <div class="progress"
+                                            style="height: 10px; background-color: rgb(231, 213, 248);">
+                                            <div class="progress-bar" id="proteinsbar" role="progressbar"
+                                                style=" height:100%;" aria-valuenow="25" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="proteinval" id="proteinval"></div>
+                                    </div>
+
+                                    <div class="chartdiv">
+                                        <div class="textchart">Fibre</div>
+                                        <div class="progress"
+                                            style="height: 10px; background-color: rgb(231, 213, 248);">
+                                            <div class="progress-bar" id="fibrebar" role="progressbar"
+                                                style=" height:100%;" aria-valuenow="25" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="fibreval" id="fibreval"></div>
+                                    </div>
+
+                                    <div class="chartdiv">
+                                        <div class="textchart">Total calorie</div>
+                                        <div class="progress"
+                                            style="height: 10px; background-color: rgb(231, 213, 248);">
+                                            <div class="progress-bar" id="caloriebar" role="progressbar"
+                                                style="height:100%;" aria-valuenow="25" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
+                                        </div>
+                                        <div class="calval" id="calval"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="totalmsg">
+                            <div class="totaltextmsg" id="totaltextmsg"></div>
+                            <div class="totalemomsg"><img id="totalemomsg"></div>
+                        </div>
+                    </div>
+                    <!-- This part is optional...the weekly graph -->
+                    <div class="weeklygraph">
+                        <div class="weeklygraphheader">
+                            <div class="totimg"><img src="./static/dashboard/bar-graph.png" alt="image"></div>
+                            <div class="weeklytextheader">Your Progress</div>
+                        </div>
+                        <canvas class="weeklygraphgraph" id="chartdiv" style="width:100%;max-width :600px;">
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+
+
+            <script>
+                const bform = document.getElementById("bform");
+                const lform = document.getElementById("lform");
+                const dform = document.getElementById("dform");
+                const breakfastdata = document.getElementById("breakfastdata");
+                const lunchdata = document.getElementById("lunchdata");
+                const dinnerdata = document.getElementById("dinnerdata");
+                const breakfastcarbs = document.getElementById("breakfastcarbs");
+                const breakfastfats = document.getElementById("breakfastfats");
+                const breakfastproteins = document.getElementById("breakfastproteins");
+                const breakfastfibre = document.getElementById("breakfastfibre");
+                const breakfasttotal = document.getElementById("breakfasttotal");
+
+                const lunchcarbs = document.getElementById("lunchcarbs");
+                const lunchfats = document.getElementById("lunchfats");
+                const lunchproteins = document.getElementById("lunchproteins");
+                const lunchfibre = document.getElementById("lunchfibre");
+                const lunchtotal = document.getElementById("lunchtotal");
+
+                const dinnercarbs = document.getElementById("dinnercarbs");
+                const dinnerfats = document.getElementById("dinnerfats");
+                const dinnerproteins = document.getElementById("dinnerproteins");
+                const dinnerfibre = document.getElementById("dinnerfibre");
+                const dinnertotal = document.getElementById("dinnertotal");
+
+                const totcarb = document.getElementById("totcarb");
+                const totfat = document.getElementById("totfat");
+                const totproteins = document.getElementById("totproteins");
+                const totfibre = document.getElementById("totfibre");
+                const totcal = document.getElementById("totcal");
+
+
+                const carbsbar = document.getElementById("carbsbar");
+                const fatsbar = document.getElementById("fatsbar");
+                const proteinsbar = document.getElementById("proteinsbar");
+                const fibrebar = document.getElementById("fibrebar");
+                const caloriebar = document.getElementById("caloriebar");
+
+                const carbval = document.getElementById("carbval");
+                const fatval = document.getElementById("fatval");
+                const proteinval = document.getElementById("proteinval");
+                const fibreval = document.getElementById("fibreval");
+                const calval = document.getElementById("calval");
+
+                const totaltextmsg = document.getElementById("totaltextmsg");
+                const totalemomsg = document.getElementById("totalemomsg");
+                const btextmsg = document.getElementById("btextmsg");
+                const bemomsg = document.getElementById("bemomsg");
+                const ltextmsg = document.getElementById("ltextmsg");
+                const lemomsg = document.getElementById("lemomsg");
+                const dtextmsg = document.getElementById("dtextmsg");
+                const demomsg = document.getElementById("demomsg");
+                // const progressbars = document.getElementsByClassName("progress")
+                const chartdiv = document.getElementById("chartdiv");
+
+
+                var bdisplay = "";
+                var ldisplay = "";
+                var ddisplay = "";
+
+                var bsum = 0;
+                var lsum = 0;
+                var dsum = 0;
+                var bcarbs = 0;
+                var bfats = 0;
+                var bproteins = 0;
+                var bfibre = 0;
+
+                var lcarbs = 0;
+                var lfats = 0;
+                var lproteins = 0;
+                var lfibre = 0;
+
+                var dcarbs = 0;
+                var dfats = 0;
+                var dproteins = 0;
+                var dfibre = 0;
+
+                var bldcarbstotal = 0;
+                var bldfatstotal = 0;
+                var bldproteinstotal = 0;
+                var bldfibretotal = 0;
+                var bldcaltotal = 0;
+
+                var carbstotal = 0;
+                var fatstotal = 0;
+                var proteinstotal = 0;
+                var fibretotal = 0;
+
+
+
+
+                // calculating the budget calorie=========================================================
+                var budget = 0;
+                const heightWeight_data = fetch("/user/me").then((result) => {
+                    return result.json();
+                }).then((result) => {
+                    var ht = result.height;
+                    var wt = result.weight;
+
+                    var arrdata = [];
+                    // console.log(result.graphdata);
+                    if (result.graphdata) {
+                        arrdata = result.graphdata;
+                    }
+
+                    var idd = result._id;
+                    // console.log(idd);
+
+                    var dob = result.dob.split("-");
+                    var yyyy = dob[0];
+                    var mm = dob[1];
+                    var today = new Date();
+                    var todayYY = today.getFullYear();
+                    var todayMM = today.getMonth() + 1;
+                    var ageVal = (todayYY - yyyy);
+                    if (ageVal > 0 && mm < todayMM) {
+                        ageVal--;
+                    }
+
+                    var bmr = 0;
+                    if (result.gender == "female") {
+                        bmr = 655.1 + (9.563 * wt) + (1.850 * ht) - (4.676 * ageVal);
+                    }
+                    else {
+                        bmr = 66.47 + (13.75 * wt) + (5.003 * ht) - (6.755 * ageVal);
+                    }
+
+                    var amr = 0;
+                    if (result.activity == "sedentary") {
+                        amr = 1.2 * bmr;
+                    }
+                    else if (result.activity == "lightlyActive") {
+                        amr = bmr * 1.375;
+                    }
+                    else if (result.activity == "moderatelyActive") {
+                        amr = bmr * 1.55;
+                    }
+                    else if (result.activity == "active") {
+                        amr = bmr * 1.725;
+                    }
+                    else {
+                        amr = bmr * 1.9;
+                    }
+
+
+                    var gain = 0;
+                    if (result.targetWeight) {
+                        gain = result.targetWeight - result.weight;
+                    }
+                    budget = amr.toFixed(0);
+
+                    if (result.wholeInterval) {
+                        budget = (amr + gain * (7700 / (30 * result.wholeInterval))).toFixed(0);
+                    }
+                    if (budget < 0) {
+                        budget = 725;
+                    }
+                    // console.log(budget);
+                    carbstotal = ((237.5 * budget) / 1900).toFixed(2);
+                    fatstotal = ((26.7 * budget) / 800).toFixed(2);
+                    proteinstotal = ((40.0 * budget) / 800).toFixed(2);
+                    fibretotal = ((30.0 * budget) / 800).toFixed(2);
+
+                    bldcarbstotal = (carbstotal / 3).toFixed(2);
+                    bldfatstotal = (fatstotal / 3).toFixed(2);
+                    bldproteinstotal = (proteinstotal / 3).toFixed(2);
+                    bldfibretotal = (fibretotal / 3).toFixed(2);
+                    bldcaltotal = (budget / 3).toFixed(2);
+
+
+                    const caloriecountingpart = fetch("/apiquery").then((result) => {
+                        return result.json();
+                    }).then((result) => {
+                        bdisplay = result.bstring + ",";
+                        ldisplay = result.lstring + ",";
+                        ddisplay = result.dstring + ",";
+
+
+
+                        // displaying breakfast data======================================
+                        const breakfast_data_api = fetch(`https://api.calorieninjas.com/v1/nutrition?query=${bdisplay}`, {
+                            method: "GET",
+                            headers: {
+                                "X-Api-Key": "oqpQLmlpuN2SXve05QEOHQ==JWERaM32taFXs2QM"
+                            }
+                        }).then((result) => {
+                            return result.json();
+                        }).then((results) => {
+                            // console.log(results.items);
+
+                            for (let i = 0; i < results.items.length; i++) {
+                                bsum += results.items[i].calories;
+                                bcarbs += results.items[i].carbohydrates_total_g;
+                                bfats += results.items[i].fat_total_g;
+                                bproteins += results.items[i].protein_g;
+                                bfibre += results.items[i].fiber_g;
+
+                            }
+
+                            breakfastcarbs.innerHTML = `Carbs = ${bcarbs.toFixed(2)} / ${bldcarbstotal} g`;
+                            breakfastfats.innerHTML = `Fats = ${bfats.toFixed(2)} / ${bldfatstotal} g`;
+                            breakfastproteins.innerHTML = `Proteins = ${bproteins.toFixed(2)} / ${bldproteinstotal} g`;
+                            breakfastfibre.innerHTML = `Fiber = ${bfibre.toFixed(2)} / ${bldfibretotal} g`;
+                            breakfasttotal.innerHTML = `Calories = ${bsum.toFixed(2)} / ${bldcaltotal} Cal`;
+
+                            var bcarbsp = ((bcarbs * 100) / bldcarbstotal).toFixed(2);
+                            var bfatsp = ((bfats * 100) / bldfatstotal).toFixed(2);
+                            var bproteinsp = ((bproteins * 100) / bldproteinstotal).toFixed(2);
+                            var bfibrep = ((bfibre * 100) / bldfibretotal).toFixed(2);
+
+                            if (bcarbsp < 85) {
+                                breakfastcarbs.style.color = "burlywood";
+                            }
+                            else if (bcarbsp >= 85 && bcarbsp <= 105) {
+                                breakfastcarbs.style.color = "green";
+                            }
+                            else {
+                                breakfastcarbs.style.color = "red";
+                            }
+
+                            if (bfatsp < 85) {
+                                breakfastfats.style.color = "burlywood";
+                            }
+                            else if (bfatsp >= 85 && bfatsp <= 105) {
+                                breakfastfats.style.color = "green";
+                            }
+                            else {
+                                breakfastfats.style.color = "red";
+                            }
+
+                            if (bproteinsp < 85) {
+                                breakfastproteins.style.color = "burlywood";
+                            }
+                            else if (bproteinsp >= 85 && bproteinsp <= 105) {
+                                breakfastproteins.style.color = "green";
+                            }
+                            else {
+                                breakfastproteins.style.color = "red";
+                            }
+
+                            if (bfibrep < 85) {
+                                breakfastfibre.style.color = "burlywood";
+                            }
+                            else if (bfibrep >= 85 && bfibrep <= 105) {
+                                breakfastfibre.style.color = "green";
+                            }
+                            else {
+                                breakfastfibre.style.color = "red";
+                            }
+
+                            var breakfastpercent = ((bsum * 100) / bldcaltotal).toFixed(2);
+                            if (breakfastpercent < 85) {
+                                btextmsg.innerHTML = "Your calorie intake is under your budget";
+                                bemomsg.src = "./static/dashboard/sadlow.png";
+                                breakfasttotal.style.color = "burlywood";
+                            }
+                            else if (breakfastpercent >= 85 && breakfastpercent <= 105) {
+                                btextmsg.innerHTML = "Your calorie intake perfect";
+                                bemomsg.src = "./static/dashboard/happiness.png";
+                                breakfasttotal.style.color = "green";
+
+                            }
+                            else {
+                                btextmsg.innerHTML = "Your calorie intake is over your budget";
+                                bemomsg.src = "./static/dashboard/sad.png";
+                                breakfasttotal.style.color = "red";
+                            }
+
+
+
+
+
+
+                            // displaying lunch data=================================================================
+
+                            const lunch_data_api = fetch(`https://api.calorieninjas.com/v1/nutrition?query=${ldisplay}`, {
+                                method: "GET",
+                                headers: {
+                                    "X-Api-Key": "oqpQLmlpuN2SXve05QEOHQ==JWERaM32taFXs2QM"
+                                },
+
+                            }).then((result) => {
+                                return result.json();
+                            }).then((results) => {
+
+                                for (let i = 0; i < results.items.length; i++) {
+                                    lsum += results.items[i].calories;
+                                    lcarbs += results.items[i].carbohydrates_total_g;
+                                    lfats += results.items[i].fat_total_g;
+                                    lproteins += results.items[i].protein_g;
+                                    lfibre += results.items[i].fiber_g;
+
+                                }
+
+
+                                lunchcarbs.innerHTML = `Carbs = ${lcarbs.toFixed(2)} / ${bldcarbstotal} g`;
+                                lunchfats.innerHTML = `Fats = ${lfats.toFixed(2)} / ${bldfatstotal} g`;
+                                lunchproteins.innerHTML = `Proteins = ${lproteins.toFixed(2)} / ${bldproteinstotal} g`;
+                                lunchfibre.innerHTML = `Fiber = ${lfibre.toFixed(2)} / ${bldfibretotal} g`;
+                                lunchtotal.innerHTML = `Calories = ${lsum.toFixed(2)} / ${bldcaltotal} Cal`;
+
+                                var lcarbsp = ((lcarbs * 100) / bldcarbstotal).toFixed(2);
+                                var lfatsp = ((lfats * 100) / bldfatstotal).toFixed(2);
+                                var lproteinsp = ((lproteins * 100) / bldproteinstotal).toFixed(2);
+                                var lfibrep = ((lfibre * 100) / bldfibretotal).toFixed(2);
+
+                                if (lcarbsp < 85) {
+                                    lunchcarbs.style.color = "burlywood";
+                                }
+                                else if (lcarbsp >= 85 && lcarbsp <= 105) {
+                                    lunchcarbs.style.color = "green";
+                                }
+                                else {
+                                    lunchcarbs.style.color = "red";
+                                }
+
+                                if (lfatsp < 85) {
+                                    lunchfats.style.color = "burlywood";
+                                }
+                                else if (lfatsp >= 85 && lfatsp <= 105) {
+                                    lunchfats.style.color = "green";
+                                }
+                                else {
+                                    lunchfats.style.color = "red";
+                                }
+
+                                if (lproteinsp < 85) {
+                                    lunchproteins.style.color = "burlywood";
+                                }
+                                else if (lproteinsp >= 85 && lproteinsp <= 105) {
+                                    lunchproteins.style.color = "green";
+                                }
+                                else {
+                                    lunchproteins.style.color = "red";
+                                }
+
+                                if (lfibrep < 85) {
+                                    lunchfibre.style.color = "burlywood";
+                                }
+                                else if (lfibrep >= 85 && lfibrep <= 105) {
+                                    lunchfibre.style.color = "green";
+                                }
+                                else {
+                                    lunchfibre.style.color = "red";
+                                }
+
+
+                                var lunchpercent = ((lsum * 100) / bldcaltotal).toFixed(2);
+                                if (lunchpercent < 85) {
+                                    ltextmsg.innerHTML = "Your calorie intake is under your budget";
+                                    lemomsg.src = "./static/dashboard/sadlow.png";
+                                    lunchtotal.style.color = "burlywood";
+
+                                }
+                                else if (lunchpercent >= 85 && lunchpercent <= 105) {
+                                    ltextmsg.innerHTML = "Your calorie intake perfect";
+                                    lemomsg.src = "./static/dashboard/happiness.png";
+                                    lunchtotal.style.color = "green";
+                                }
+                                else {
+                                    ltextmsg.innerHTML = "Your calorie intake is over your budget";
+                                    lemomsg.src = "./static/dashboard/sad.png";
+                                    lunchtotal.style.color = "red";
+                                }
+
+
+
+
+                                // displaying dinner data===========================================
+
+
+                                const dinner_data_api = fetch(`https://api.calorieninjas.com/v1/nutrition?query=${ddisplay}`, {
+                                    method: "GET",
+                                    headers: {
+                                        "X-Api-Key": "oqpQLmlpuN2SXve05QEOHQ==JWERaM32taFXs2QM"
+                                    },
+
+                                }).then((result) => {
+                                    return result.json();
+                                }).then((results) => {
+                                    for (let i = 0; i < results.items.length; i++) {
+                                        dsum += results.items[i].calories;
+                                        dcarbs += results.items[i].carbohydrates_total_g;
+                                        dfats += results.items[i].fat_total_g;
+                                        dproteins += results.items[i].protein_g;
+                                        dfibre += results.items[i].fiber_g;
+
+                                    }
+
+                                    dinnercarbs.innerHTML = `Carbs = ${dcarbs.toFixed(2)} / ${bldcarbstotal} g`;
+                                    dinnerfats.innerHTML = `Fats = ${dfats.toFixed(2)} / ${bldfatstotal} g`;
+                                    dinnerproteins.innerHTML = `Proteins = ${dproteins.toFixed(2)} / ${bldproteinstotal} g`;
+                                    dinnerfibre.innerHTML = `Fiber = ${dfibre.toFixed(2)} / ${bldfibretotal} g`;
+                                    dinnertotal.innerHTML = `Calories = ${dsum.toFixed(2)} / ${bldcaltotal} Cal`;
+
+                                    var dcarbsp = ((dcarbs * 100) / bldcarbstotal).toFixed(2);
+                                    var dfatsp = ((dfats * 100) / bldfatstotal).toFixed(2);
+                                    var dproteinsp = ((dproteins * 100) / bldproteinstotal).toFixed(2);
+                                    var dfibrep = ((dfibre * 100) / bldfibretotal).toFixed(2);
+
+                                    if (dcarbsp < 85) {
+                                        dinnercarbs.style.color = "burlywood";
+                                    }
+                                    else if (bcarbsp >= 85 && bcarbsp <= 105) {
+                                        dinnercarbs.style.color = "green";
+                                    }
+                                    else {
+                                        dinnercarbs.style.color = "red";
+                                    }
+
+                                    if (dfatsp < 85) {
+                                        dinnerfats.style.color = "burlywood";
+                                    }
+                                    else if (dfatsp >= 85 && dfatsp <= 105) {
+                                        dinnerfats.style.color = "green";
+                                    }
+                                    else {
+                                        dinnerfats.style.color = "red";
+                                    }
+
+                                    if (dproteinsp < 85) {
+                                        dinnerproteins.style.color = "burlywood";
+                                    }
+                                    else if (dproteinsp >= 85 && dproteinsp <= 105) {
+                                        dinnerproteins.style.color = "green";
+                                    }
+                                    else {
+                                        dinnerproteins.style.color = "red";
+                                    }
+
+                                    if (dfibrep < 85) {
+                                        dinnerfibre.style.color = "burlywood";
+                                    }
+                                    else if (dfibrep >= 85 && dfibrep <= 105) {
+                                        dinnerfibre.style.color = "green";
+                                    }
+                                    else {
+                                        dinnerfibre.style.color = "red";
+                                    }
+
+
+
+                                    var dinnerpercent = ((dsum * 100) / bldcaltotal).toFixed(2);
+                                    if (dinnerpercent < 85) {
+                                        dtextmsg.innerHTML = "Your calorie intake is under your budget";
+                                        demomsg.src = "./static/dashboard/sadlow.png";
+                                        dinnertotal.style.color = "burlywood";
+                                    }
+                                    else if (dinnerpercent >= 85 && dinnerpercent <= 105) {
+                                        dtextmsg.innerHTML = "Your calorie intake perfect";
+                                        demomsg.src = "./static/dashboard/happiness.png";
+                                        dinnertotal.style.color = "green";
+                                    }
+                                    else {
+                                        dtextmsg.innerHTML = "Your calorie intake is over your budget";
+                                        demomsg.src = "./static/dashboard/sad.png";
+                                        dinnertotal.style.color = "red";
+                                    }
+
+
+                                    var carbohydrates = 0;
+                                    var fats = 0;
+                                    var proteins = 0;
+                                    var fibre = 0;
+                                    var sum = 0;
+                                    var carbspercent = 0;
+                                    var fatspercent = 0;
+                                    var proteinspercent = 0;
+                                    var fibrepercent = 0;
+                                    var caloriepercent = 0;
+
+                                    carbohydrates = (bcarbs + lcarbs + dcarbs).toFixed(2);
+                                    fats = (bfats + lfats + dfats).toFixed(2);
+                                    proteins = (bproteins + lproteins + dproteins).toFixed(2);
+                                    fibre = (bfibre + lfibre + dfibre).toFixed(2);
+                                    sum = (bsum + lsum + dsum).toFixed(2);
+
+                                    totcarb.innerHTML = `carbs = ${carbohydrates} / ${carbstotal} g`;
+                                    totfat.innerHTML = `fats = ${fats} / ${fatstotal} g`;
+                                    totproteins.innerHTML = `proteins = ${proteins} / ${proteinstotal} g`;
+                                    totfibre.innerHTML = `fibre = ${fibre} / ${fibretotal} g`;
+                                    totcal.innerHTML = `calories = ${sum} / ${budget} Cal`;
+
+                                    carbspercent = ((carbohydrates * 100) / carbstotal).toFixed(2);
+                                    var carbsvalue = carbspercent;
+                                    if (carbspercent > 100) {
+                                        carbspercent = 100.00;
+                                    }
+                                    carbsbar.style.width = `${carbspercent}%`;
+                                    if (carbsvalue < 85) {
+                                        carbsbar.style.backgroundColor = "burlywood";
+                                        carbval.style.color = "burlywood";
+                                        totcarb.style.color = "burlywood";
+
+                                    }
+                                    else if (carbsvalue >= 85 && carbsvalue <= 105) {
+                                        carbsbar.style.backgroundColor = "green";
+                                        carbval.style.color = "green";
+                                        totcarb.style.color = "green";
+                                    }
+                                    else {
+                                        carbsbar.style.backgroundColor = "red";
+                                        carbval.style.color = "red";
+                                        totcarb.style.color = "red";
+                                    }
+
+                                    carbval.innerHTML = carbsvalue + "%";
+                                    // carbsbar.style.height ="100%";
+
+                                    fatspercent = ((fats * 100) / fatstotal).toFixed(2);
+                                    var fatsvalue = fatspercent;
+                                    if (fatspercent > 100) {
+                                        fatspercent = 100;
+                                    }
+                                    fatsbar.style.width = `${fatspercent}%`;
+                                    if (fatsvalue < 85) {
+                                        fatsbar.style.backgroundColor = "burlywood";
+                                        fatval.style.color = "burlywood";
+                                        totfat.style.color = "burlywood";
+
+                                    }
+                                    else if (fatsvalue >= 85 && fatsvalue <= 105) {
+                                        fatsbar.style.backgroundColor = "green";
+                                        fatval.style.color = "green";
+                                        totfat.style.color = "green";
+                                    }
+                                    else {
+                                        fatsbar.style.backgroundColor = "red";
+                                        fatval.style.color = "red";
+                                        totfat.style.color = "red";
+                                    }
+
+                                    fatval.innerHTML = fatsvalue + "%";
+
+                                    proteinspercent = ((proteins * 100) / proteinstotal).toFixed(2);
+                                    var proteinsvalue = proteinspercent;
+                                    if (proteinspercent > 100) {
+                                        proteinspercent = 100;
+                                    }
+                                    proteinsbar.style.width = `${proteinspercent}%`;
+                                    if (proteinsvalue < 85) {
+                                        proteinsbar.style.backgroundColor = "burlywood";
+                                        proteinval.style.color = "burlywood";
+                                        totproteins.style.color = "burlywood";
+
+                                    }
+                                    else if (proteinsvalue >= 85 && proteinsvalue <= 105) {
+                                        proteinsbar.style.backgroundColor = "green";
+                                        proteinval.style.color = "green";
+                                        totproteins.style.color = "green";
+                                    }
+                                    else {
+                                        proteinsbar.style.backgroundColor = "red";
+                                        proteinval.style.color = "red";
+                                        totproteins.style.color = "red";
+                                    }
+
+                                    proteinval.innerHTML = proteinsvalue + "%";
+
+                                    fibrepercent = ((fibre * 100) / fibretotal).toFixed(2);
+                                    var fibrevalue = fibrepercent;
+                                    if (fibrepercent > 100) {
+                                        fibrepercent = 100;
+                                    }
+                                    fibrebar.style.width = `${fibrepercent}%`;
+                                    if (fibrevalue < 85) {
+                                        fibrebar.style.backgroundColor = "burlywood";
+                                        fibreval.style.color = "burlywood";
+                                        totfibre.style.color = "burlywood";
+                                    }
+                                    else if (fibrevalue >= 85 && fibrevalue <= 105) {
+                                        fibrebar.style.backgroundColor = "green";
+                                        fibreval.style.color = "green";
+                                        totfibre.style.color = "green";
+                                    }
+                                    else {
+                                        fibrebar.style.backgroundColor = "red";
+                                        fibreval.style.color = "red";
+                                        totfibre.style.color = "red";
+                                    }
+                                    fibreval.innerHTML = fibrevalue + "%";
+
+                                    caloriepercent = ((sum * 100) / budget).toFixed(2);
+                                    var calorievalue = caloriepercent;
+                                    if (caloriepercent > 100) {
+                                        caloriepercent = 100;
+                                    }
+                                    caloriebar.style.width = `${caloriepercent}%`;
+                                    if (calorievalue < 85) {
+                                        caloriebar.style.backgroundColor = "burlywood";
+                                        calval.style.color = "burlywood";
+                                        totcal.style.color = "burlywood";
+                                        totaltextmsg.innerHTML = "Your calorie intake is under your budget";
+                                        totalemomsg.src = "./static/dashboard/sadlow.png";
+
+                                    }
+                                    else if (calorievalue >= 85 && calorievalue <= 105) {
+                                        caloriebar.style.backgroundColor = "green";
+                                        calval.style.color = "green";
+                                        totcal.style.color = "green";
+                                        totaltextmsg.innerHTML = "Your calorie intake is perfect";
+                                        totalemomsg.src = "./static/dashboard/happiness.png";
+                                    }
+                                    else {
+                                        caloriebar.style.backgroundColor = "red";
+                                        calval.style.color = "red";
+                                        totcal.style.color = "red";
+                                        totaltextmsg.innerHTML = "Your calorie intake is over your budget";
+                                        totalemomsg.src = "./static/dashboard/sad.png";
+                                    }
+                                    calval.innerHTML = calorievalue + "%";
+
+                                    var currentDate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+
+                                    var graphobject = {
+                                        currdate: currentDate,
+                                        calorieintake: sum,
+                                        caloriebudget: budget
+                                    }
+
+
+
+                                    if (arrdata.length != 0) {
+                                        if (arrdata[arrdata.length - 1].currdate == graphobject.currdate) {
+                                            arrdata[arrdata.length - 1] = graphobject;
+                                        }
+                                        else {
+                                            arrdata.push(graphobject);
+                                        }
+                                        if (arrdata.length > 7) {
+                                            arrdata.shift();
+                                        }
+                                    }
+                                    else {
+                                        arrdata.push(graphobject);
+                                    }
+                                    var xvalues = [];
+                                    var yvalues = [];
+                                    var yyvalues = [];
+                                    for (let i = 0; i < arrdata.length; i++) {
+                                        xvalues.push(arrdata[i].currdate);
+                                        yvalues.push(arrdata[i].calorieintake);
+                                        yyvalues.push(arrdata[i].caloriebudget);
+                                    }
+                                    new Chart("chartdiv", {
+                                        type: "bar",
+                                        data: {
+                                            labels: xvalues,
+                                            datasets: [
+                                                {
+                                                    label: "Calorie Intake",
+                                                    data: yvalues,
+                                                    fill: false,
+                                                    lineTension: 0,
+                                                    backgroundColor: "rgba(0,0,255,1.0)",
+                                                    borderColor: "blue"
+
+                                                }, {
+                                                    label: "Calorie Budget",
+                                                    data: yyvalues,
+                                                    fill: false,
+                                                    lineTension: 0,
+                                                    backgroundColor: "red",
+                                                    borderColor: "red"
+
+                                                }
+                                            ]
+                                        },
+                                        options: {
+                                            legend: { display: true, position: "bottom" }
+                                        }
+                                    })
+
+
+
+
+
+
+
+
+                                    // console.log(idd);
+                                    const update_data = fetch(`/users/${idd}`, {
+                                        method: "PATCH",
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify({
+                                            graphdata: arrdata
+                                        })
+
+                                    }).then((result) => {
+                                        // console.log(result);
+                                    }).catch((err) => {
+                                        console.log(err);
+                                    })
+                                    // console.log(arrdata);
+
+                                }).catch((err) => {
+                                    console.log(err);
+                                })
+                            }).catch((err) => {
+                                console.log(err);
+                            })
+                        }).catch((err) => {
+                            console.log(err);
+                        })
+
+
+
+                    }).catch((err) => {
+                        console.log(err);
+                    })
+
+
+
+
+
+
+
+
+                }).catch((err) => {
+                    console.log(err);
+                })
+                // console.log(budget);
+                // calculating today's date==================================
+
+                var today = new Date();
+                var currentdate = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+
+                // calculating today's calorie======================================================
+
+
+
+
+                // handling total data===============================================
+
+
+
+
+
+
+
+
+
+
+
+
+                // clearing data=======================================================
+                const bResetBtn = document.getElementById("bResetBtn");
+                const lResetBtn = document.getElementById("lResetBtn");
+                const dResetBtn = document.getElementById("dResetBtn");
+
+                bResetBtn.addEventListener("click", function () {
+                    const resetData = fetch("/apiquery/b", {
+                        method: "DELETE",
+                    }).then(() => {
+                        window.location.reload();
+                    })
+                }
+                );
+                lResetBtn.addEventListener("click", function () {
+                    const resetData = fetch("/apiquery/l", {
+                        method: "DELETE",
+                    }).then(() => {
+                        window.location.reload();
+                    })
+                }
+                );
+                dResetBtn.addEventListener("click", function () {
+                    const resetData = fetch("/apiquery/d", {
+                        method: "DELETE",
+                    }).then(() => {
+                        window.location.reload();
+                    })
+                }
+                );
+
+
+
+
+
+
+                // handling form submission===========================================
+
+
+                bform.addEventListener("submit", function (e) {
+                    // e.preventDefault();
+                    console.log(e.srcElement[0].value);
+                    const afterbformfillup = fetch("/apiquery", {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            bstring: e.srcElement[0].value
+                        })
+                    })
+                })
+
+                lform.addEventListener("submit", function (e) {
+                    const afterbformfillup = fetch("/apiquery", {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            lstring: e.srcElement[0].value
+                        })
+                    })
+                })
+
+                dform.addEventListener("submit", function (e) {
+                    const afterbformfillup = fetch("/apiquery", {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            dstring: e.srcElement[0].value
+                        })
+                    })
+                })
+
+// breakfastdata.innerHTML = bdisplay;
+// lunchdata.innerHTML = ldisplay;
+// dinnerdata.innerHTML = ddisplay;
+
+
+            </script>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+
+
+
+</body>
+
+</html>

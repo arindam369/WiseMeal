@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link</title>
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("2so94PKLCGM1_LWoB");
+        })();
+    </script>
+
+</head>
+
+<body>
+    <h2>Reset Link has been sent to your associated email id </h2>
+    <div class="link" style="display: none;">
+        <span id="email">
+            <%= EMAIL %>
+        </span>
+        <span id="link">
+            <%= LINK %>
+        </span>
+        <span id="service-id">
+            <%= SERVICE_ID %>
+        </span>
+        <span id="template-id">
+            <%= TEMPLATE_ID %>
+        </span>
+    </div>
+
+    <script>
+        const userEmail = document.getElementById("email").innerHTML.trim();
+        const userLink = document.getElementById("link").innerHTML.trim();
+        const serviceId = document.getElementById("service-id").innerHTML.trim();
+        const templateId = document.getElementById("template-id").innerHTML.trim();
+
+        emailjs.init("2so94PKLCGM1_LWoB");
+
+        const params = {
+            "email_id": userEmail,
+            "message": `Click on this link to reset your password : ${userLink}`
+        }
+        emailjs.send(serviceId, templateId, params).then(function (res) {
+            console.log(res);
+            alert(`Reset link sent to the email : ${userEmail}`);
+        },
+            reason => {
+                alert("Error occured");
+                console.log("Error");
+            })
+
+    </script>
+</body>
+
+</html>

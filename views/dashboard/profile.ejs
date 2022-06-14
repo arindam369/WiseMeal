@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | WiseMeal</title>
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./dashboard/styleprofile.css">
+    <link rel="stylesheet" href="./home.css">
+</head>
+
+<body>
+    <!-- navbar1======= -->
+    <%- include('../../partials/nav1.ejs') %>
+
+        <!-- navbar2===== -->
+        <%- include('../../partials/nav2.ejs') %>
+
+            <div class="profile-container">
+                <div class="mainbody">
+                    <!-- left side only image and name -->
+                    <div class="onlyname">
+                        <div class="profimg">
+                            <img src="./static/dashboard/download.png" alt="image" id="myAvatar">
+                        </div>
+                        <div class="name" id="fullname">
+
+                        </div>
+                        <div class="belowname">
+                            <div class="goal" id="goal">
+                                No goals
+                            </div>
+                            <div class="posts">
+                                Post : <span id="postNo">6</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- right side=================== -->
+                    <div class="otherinfo">
+                        <!-- info section================================ -->
+                        <div class="info">
+                            <div class="infoheader">
+                                <div class="headerimg"><img src="./static/dashboard/contact-us.png" alt="image"></div>
+                                <div class="headertext">Contacts</div>
+                            </div>
+                            <div class="infodata">
+                                <div class="address">
+                                    <b>City:</b> <span id="city"> </span>
+                                </div>
+                                <div class="email">
+                                    <b>Email:</b> <span id="email"> </span>
+                                </div>
+                                <div class="phone">
+                                    <b>Phone:</b> <span id="phone"> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Bottom part=============================== -->
+                        <div class="otherdata">
+                            <div class="otherheader">
+                                <div class="headerimg"><img src="./static/dashboard/personal.png" alt="image"></div>
+                                <div class="headertext">Information:</div>
+                            </div>
+                            <div class="otherdata">
+                                <div class="gender"><b>Gender: </b> <span id="gender"> </span> </div>
+                                <div class="age"><b>Age:</b> <span id="age"> </span> </div>
+                                <div class="weight"><b>Weight(in Kg):</b> <span id="weight"> </span> </div>
+                                <div class="height"><b>Height(in cm):</b> <span id="height"> </span> </div>
+                                <div class="bmi">
+                                    <div class="bmiheader"><b>BMI: </b></div>
+                                    <div class="bmivalue"> <span id="bmi"> </span> </div>
+                                </div>
+                                <div class="activitylevel"><b>Weight Status:</b> <span id="weightStatus"> </span> </div>
+                                <div class="activitylevel"><b>Activity level:</b> <span id="activity"> </span> </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <script>
+
+                const fullname = document.getElementById("fullname");
+                const phone = document.getElementById("phone");
+                const email = document.getElementById("email");
+                const gender = document.getElementById("gender");
+                const age = document.getElementById("age");
+                const activity = document.getElementById("activity");
+                const height = document.getElementById("height");
+                const weight = document.getElementById("weight");
+                const bmi = document.getElementById("bmi");
+                const city = document.getElementById("city");
+                const weightStatus = document.getElementById("weightStatus");
+                const goal = document.getElementById("goal");
+                const postNo = document.getElementById("postNo");
+                const myAvatar = document.getElementById("myAvatar");
+
+                const user = fetch("/user/me").then((result) => {  // handling promise
+                    return result.json();       // you have to change the result into json format and this also returns a promise
+                }).then((result) => {     // so again handling promise
+
+                    fullname.innerHTML = result.fullname;
+                    phone.innerHTML = result.phone;
+                    email.innerHTML = result.email;
+                    gender.innerHTML = result.gender;
+
+
+                    const postnum = fetch("/post/me").then((result) => {
+                        return result.json();
+                    }).then((result) => {
+                        postNo.innerHTML = result.length;
+                    })
+
+                    const avatarURL = fetch(`/users/${result._id}/avatar`).then((data) => {
+                        if (data) {
+                            if (data.url) {
+                                myAvatar.src = data.url;
+                            }
+                        }
+                        else {
+                            // myAvatar.src = "./../static/user-dp.jpg";
+                            myAvatar.src = "./../static/dashboard/download.png";
+                        }
+                    }).catch((error) => {
+                        console.log("Error occured");
+                        console.log(error);
+                    })
+
+
+
+
+                    // Age Part may be modified later =====================
+                    var dob = result.dob.split("-");
+                    var yyyy = dob[0];
+                    var mm = dob[1];
+                    var today = new Date();
+                    var todayYY = today.getFullYear();
+                    var todayMM = today.getMonth() + 1;
+                    var ageVal = (todayYY - yyyy);
+                    if (ageVal > 0 && mm < todayMM) {
+                        ageVal--;
+                    }
+
+                    age.innerHTML = ageVal;
+                    activity.innerHTML = result.activity;
+
+                    height.innerHTML = result.height;
+                    weight.innerHTML = result.weight;
+                    var bmiVal = (result.weight / Math.pow(result.height / 100, 2)).toFixed(2);
+                    bmi.innerHTML = bmiVal;
+
+                    if (result.city) {
+                        city.innerHTML = result.city;
+                    }
+
+                    if (bmiVal < 16) {
+                        bmi.style.color = "red";
+                        weightStatus.innerHTML = "Severe Thinness";
+                    }
+                    if (bmiVal >= 16 && bmiVal < 17) {
+                        bmi.style.color = "red";
+                        weightStatus.innerHTML = "Moderate Thinness";
+                    }
+                    else if (bmiVal >= 17 && bmiVal < 18.5) {
+                        bmi.style.color = "red";
+                        weightStatus.innerHTML = "Mild Thinness";
+                    }
+                    else if (bmiVal >= 18.5 && bmiVal <= 24.9) {
+                        bmi.style.color = "green";
+                        weightStatus.innerHTML = "Normal";
+                    }
+                    else if (bmiVal > 24.9 && bmiVal <= 30) {
+                        bmi.style.color = "red";
+                        weightStatus.innerHTML = "Overweight";
+                    }
+                    else {
+                        bmi.style.color = "red";
+                        weightStatus.innerHTML = "Obese";
+                    }
+
+                    // Goal handling ==============
+                    var targetWT = result.targetWeight;
+                    var currWT = result.weight;
+                    if (!targetWT) {
+                        goal.innerHTML = "No Goals";
+                    }
+                    else if (targetWT > currWT) {
+                        goal.innerHTML = `Gain ${targetWT - currWT}kg`;
+                    }
+                    else if (targetWT < currWT) {
+                        goal.innerHTML = `Lose ${currWT - targetWT}kg`;
+                    }
+                    else {
+                        goal.innerHTML = `Maintain weight`;
+                    }
+
+
+
+
+
+
+                }).catch((err) => {
+                    console.log(err);
+                })
+
+
+                const me = fetch("/user/me").then((result) => {
+                    return result.json();
+                }).then((result) => {
+                    // console.log(result);
+                }).catch((err) => {
+                    console.log(err);
+                })
+
+
+            </script>
+
+</body>
+
+</html>

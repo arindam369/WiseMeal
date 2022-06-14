@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Goals | WiseMeal</title>
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="./dashboard/styletarget.css">
+</head>
+
+<body>
+
+    <!-- navbar1============= -->
+    <%- include('../../partials/nav1.ejs') %>
+
+        <!-- navbar2================= -->
+        <%- include('../../partials/nav2.ejs') %>
+
+            <!-- main work============== -->
+            <div class="workhere">
+                <div class="header">SET YOUR WEIGHT GOAL</div>
+                <div class="mainbody">
+                    <!-- current goals and status -->
+                    <div class="current">
+                        <div class="currheight">
+                            <div class="currheader">Your current height(in cm)</div>
+                            <div class="height" id="height">
+
+                            </div>
+                        </div>
+
+                        <div class="currbmi">
+                            <div class="currheader">Your current BMI</div>
+                            <div class="bmi" id="bmi">
+
+                            </div>
+                        </div>
+
+                        <div class="currweight">
+                            <div class="currheader">Your current weight(in Kg) </div>
+                            <div class="weight" id="weight">
+
+                            </div>
+                        </div>
+
+                        <div class="targetweight">
+                            <div class="twheader">Your target weight(in Kg)</div>
+                            <div class="tw" id="targetWeight">
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="middlepart">
+                        <div class="formcontainer">
+                            <form action="" id="goalForm">
+                                <div class="inpdesign">
+                                    <div class="weightinput">Target weight:<input type="number" name="targetWeight"
+                                            placeholder="Enter your target weight" required></div>
+                                    <div class="timeinput">How fast:<input type="number"
+                                            placeholder="In how many months?" name="wholeInterval" required></div>
+                                    <button type="submit">Submit</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="range">
+                            <div class="rangeheader">Your ideal weight range:</div>
+                            <div class="rangedata" id="rangedata"></div>
+                        </div>
+
+                    </div>
+                    <div class="msg"> Daily Calorie Budget is&nbsp; <div class="msgval" id="msgval"> &nbsp;</div> Cal
+                    </div>
+                </div>
+            </div>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+            <script>
+
+                const height = document.getElementById("height");
+                const weight = document.getElementById("weight");
+                const bmi = document.getElementById("bmi");
+                const targetWeight = document.getElementById("targetWeight");
+                const goalForm = document.getElementById("goalForm");
+                const rangedata = document.getElementById("rangedata");
+                const msgval = document.getElementById("msgval");
+
+                // Fetching Data of height, weight, bmi from database
+                const heightWeight_data = fetch("/user/me").then((result) => {
+                    return result.json();
+                }).then((result) => {
+                    var ht = result.height;
+                    var wt = result.weight;
+
+
+
+
+
+                    if (result.targetWeight) {
+                        targetWeight.innerHTML = result.targetWeight;
+                    }
+                    else {
+                        targetWeight.innerHTML = result.weight;
+                    }
+                    var bmiVal = (wt / Math.pow(ht / 100, 2)).toFixed(2);
+
+                    height.innerHTML = ht;
+                    weight.innerHTML = wt;
+                    bmi.innerHTML = bmiVal;
+                    var idealwtlow = ((18.5 * (ht * ht)) / 10000).toFixed(0);
+                    var idealwthigh = ((24.9 * (ht * ht)) / 10000).toFixed(0);
+                    rangedata.innerHTML = `${idealwtlow} - ${idealwthigh} Kg`;
+
+                    if(wt >= idealwtlow && wt <= idealwthigh){
+                        weight.style.color = "green";
+                    }
+                    else{
+                        weight.style.color = "red";
+                    }
+
+                    if(result.targetWeight){
+                        if(result.targetWeight >= idealwtlow && result.targetWeight <= idealwthigh){
+                            targetWeight.style.color = "green";
+                        }
+                        else{
+                            targetWeight.style.color = "red";
+                        }
+                    }
+                    else{
+                        if(wt >= idealwtlow && wt <= idealwthigh){
+                            targetWeight.style.color = "green";
+                        }
+                        else{
+                            targetWeight.style.color = "red";
+                        }
+                    }
+
+
+                    var dob = result.dob.split("-");
+                    var yyyy = dob[0];
+                    var mm = dob[1];
+                    var today = new Date();
+                    var todayYY = today.getFullYear();
+                    var todayMM = today.getMonth() + 1;
+                    var ageVal = (todayYY - yyyy);
+                    if (ageVal > 0 && mm < todayMM) {
+                        ageVal--;
+                    }
+
+                    var bmr = 0;
+                    if (result.gender == "female") {
+                        bmr = 655.1 + (9.563 * wt) + (1.850 * ht) - (4.676 * ageVal);
+                    }
+                    else {
+                        bmr = 66.47 + (13.75 * wt) + (5.003 * ht) - (6.755 * ageVal);
+                    }
+
+                    var amr = 0;
+                    if (result.activity == "sedentary") {
+                        amr = 1.2 * bmr;
+                    }
+                    else if (result.activity == "lightlyActive") {
+                        amr = bmr * 1.375;
+                    }
+                    else if (result.activity == "moderatelyActive") {
+                        amr = bmr * 1.55;
+                    }
+                    else if (result.activity == "active") {
+                        amr = bmr * 1.725;
+                    }
+                    else {
+                        amr = bmr * 1.9;
+                    }
+
+
+                    var gain = 0;
+                    if(result.targetWeight){
+                        gain = result.targetWeight - result.weight;
+                    }
+                    var budget = amr.toFixed(0);
+                    
+                    if(result.wholeInterval){
+                        budget = (amr + gain * (7700 / (30 * result.wholeInterval))).toFixed(0);
+                    }
+                    if (budget < 0) {
+                        budget = 725;
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        Toast.fire({
+                            icon: 'warning',
+                            title: 'Unrealistic weight..need heavy exercise'
+                        })
+                    }
+
+
+                    if (budget < 2000) {
+                        // const Toast = Swal.mixin({
+                        //     toast: true,
+                        //     position: 'top-end',
+                        //     showConfirmButton: false,
+                        //     timer: 3000,
+                        //     timerProgressBar: true,
+                        //     didOpen: (toast) => {
+                        //         toast.addEventListener('mouseenter', Swal.stopTimer)
+                        //         toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        //     }
+                        // })
+
+                        // Toast.fire({
+                        //     icon: 'warning',
+                        //     title: 'Daily calorie intake is below 2000(FDA recommended)'
+                        // })
+                        alert("Daily calorie intake is below 2000cal (FDA recommended)");
+                    }
+                    msgval.innerHTML = `${budget}`;
+
+
+
+                    // Updating targetWeight & wholeInterval in DB
+                    goalForm.addEventListener("submit", function (e) {
+                        // e.preventDefault();
+                        var targetWeight_val = e.srcElement[0].value;
+                        var wholeInterval_val = e.srcElement[1].value;
+
+                        const updatedWeightInterval_data = fetch(`/users/${result._id}`, {
+                            method: "PATCH",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                targetWeight: targetWeight_val,
+                                wholeInterval: wholeInterval_val
+                            })
+                        })
+
+                    })
+
+
+
+
+
+                }).catch((err) => {
+                    console.log(err);
+                })
+
+
+
+
+            </script>
+
+
+
+</body>
+
+</html>

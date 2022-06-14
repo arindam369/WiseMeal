@@ -1,0 +1,284 @@
+*{
+    margin: 0px;
+}
+/* Create-Story  ========================================*/
+.create-story-container{
+    padding: 120px 10px 0px;
+    padding-top: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.create-story-box{
+    /* border: 1px solid red; */
+    width: 350px;
+    padding: 10px 0px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 20px 2px rgb(145, 145, 145);
+    background-color: #fff;
+}
+.create-story-head{
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 40px;
+}
+.create-story-head img{
+    height: 40px;
+    margin-right: 13px;
+}
+.create-story-form{
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.create-story-form form{
+    /* border: 2px solid green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    padding: 8px;
+}
+.create-story-form form input{
+    padding: 6px 15px;
+    outline: none;
+    width: 250px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: .9rem;
+}
+.create-story-form textarea{
+    resize: none;
+    width: 252px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: .9rem;
+    outline: none;
+}
+.create-story-form form button{
+    width: 282px;
+    padding: 3px 8px;
+    font-family:'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+
+/* View-Story =================================== */
+.view-story-container{
+    padding: 70px 20px 50px;
+}
+.view-story-head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.view-story-head img{
+    height: 40px;
+    margin-right: 13px;
+}
+.stories-collection{
+    /* border: 2px solid blue; */
+    padding: 35px 25px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.story-box{
+    /* border: 3px solid red; */
+    width: 320px;
+    padding: 30px 25px;
+    box-shadow: 2px 2px 20px 2px rgb(145, 145, 145);
+    border-radius: 12px;
+    margin-bottom: 30px;
+    background-color: #fff;
+}
+.story-box .view-icon img{
+    height: 28px;
+    width: 32px;
+    margin-top: 5px;
+    float: right;
+}
+.story-subject{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #0275D8;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+}
+.story-description{
+    text-align: justify;
+    font-size: .9rem;
+    color: rgb(63, 63, 63);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 90px;
+}
+.story-box .author{
+    float: right;
+    font-size: .84rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    color: rgb(145, 68, 68);
+    margin-top: 15px;
+}
+
+/* Full Story ===================== */
+.fullstory-head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.fullstory-head img{
+    height: 45px;
+    margin-right: 13px;
+}
+.fullstory-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid blue; */
+    margin-top: 40px;
+}
+.fullstory-box{
+    /* border: 2px solid red; */
+    width: 600px;
+    /* height: 400px; */
+    border-radius: 12px;
+    padding: 80px 60px;
+    box-shadow: 2px 2px 20px 2px rgb(145, 145, 145);
+    background-color: #fff;
+}
+.fullstory-subject{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #0275D8;
+    font-size: 1.8rem;
+    margin-bottom: 34px;
+}
+.fullstory-description{
+    text-align: justify;
+    font-size: 1.1rem;
+    color: rgb(63, 63, 63);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+.fullstory-author{
+    float: right;
+    font-size: .98rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    color: rgb(145, 68, 68);
+    margin-top: 35px;
+}
+.view-all-button button{
+    padding: 6px 12px;
+    background-color: rgb(161, 56, 56);
+    color: white;
+    border: 1px solid rgb(47, 47, 47);
+    border-radius: 4px;
+    font-weight: 600;
+    float: right;
+    margin-right: 60px;
+    cursor: pointer;
+}
+.view-all-button button:active{
+    transform: scale(.96);
+}
+.view-author{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.view-author div {
+    margin-top: 10px;
+}
+.view-author img{
+    height: 18px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+/* All Stories ================================== */
+
+
+
+@media (min-width: 885px) and (max-width: 1250px){
+    .stories-collection{
+        /* border: 2px solid blue; */
+        padding: 35px 25px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (min-width: 385px) and (max-width: 885px){
+    .stories-collection{
+        /* border: 2px solid blue; */
+        padding: 35px 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .view-story-container{
+        /* border: 2px solid red; */
+        text-align: center;
+    }
+    .view-all-button button{
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 385px){
+    .stories-collection{
+        padding: 35px 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .story-box{
+        width: 250px;
+    }
+    .create-story-box{
+        width: 280px;
+        padding: 5px 0px;
+    }
+    .create-story-form form input{
+        width: 210px;
+    }
+    .create-story-form form textarea{
+        width: 212px;
+    }
+    .create-story-form form button{
+        width: 244px;
+    }
+    .view-all-button button{
+        margin-right: 20px;
+    }
+}
+
+@media(max-width: 380px){
+    .fullstory-subject{
+        font-size: 1.4rem;
+    }
+    .fullstory-description{
+        font-size: 1rem;
+    }
+    .fullstory-author{
+        font-size: .98rem;
+    }
+    .fullstory-box{
+        padding: 80px 25px;
+    }
+}

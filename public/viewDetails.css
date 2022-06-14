@@ -1,0 +1,104 @@
+body{
+    background-color:aliceblue;
+    margin: 0px;
+}
+.view-details-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px;
+}
+.view-details-box{
+    height: 180px;
+    width: 280px;
+    padding: 5px 40px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 20px 2px rgb(189, 189, 189), -2px -2px 20px 2px rgb(189, 189, 189);
+    margin-bottom: 20px;
+    background-color: white;
+}
+.view-details-box .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.view-details-head{
+    color: #0275d8;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+.view-details-box .food-name{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #009100;
+    text-align: center;
+    margin-top: 30px;
+}
+.view-details-box .ques{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: .85rem;
+    font-weight: 600;
+    color: rgb(77, 77, 77);
+}
+.view-details-box .ans{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: .85rem;
+    font-weight: 600;
+    color: rgb(77, 77, 77);
+    /* border: 1px solid red; */
+}
+.calories{
+    text-align: center;
+    margin-top: 5px;
+}
+
+@media(min-width: 915px) and (max-width: 1150px){
+
+    .view-details-container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: center;
+        align-items: center;
+        padding-left: 130px;
+    }
+}
+@media(min-width: 790px) and (max-width: 915px){
+
+    .view-details-container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: center;
+        align-items: center;
+        padding-left: 35px;
+    }
+}
+@media(min-width: 385px) and (max-width: 790px){
+
+    .view-details-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 0px;
+        flex-direction: column;
+    }
+}
+@media (max-width: 385px){
+    .view-details-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-left: 0px;
+    }
+    .view-details-box{
+        width: 230px;
+        height: 215px;
+    }
+}
