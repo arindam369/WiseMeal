@@ -67,3 +67,27 @@ body{
 {
     color: #d44638;
 }
+
+@media (min-width:360px) and (max-width: 800px){
+    .team-container{
+        flex-direction: column;
+        height: 170vh;
+    }
+    .user2{
+        margin-top: 30px;
+        margin-left: 0px;
+    }
+}
+@media(max-width: 360px){
+    .team-container{
+        flex-direction: column;
+        height: 170vh;
+    }
+    .user2{
+        margin-top: 30px;
+        margin-left: 0px;
+    }
+    .user1, .user2{
+        width: 310px;
+    }
+}
