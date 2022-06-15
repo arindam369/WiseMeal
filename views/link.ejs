@@ -45,7 +45,7 @@
 
         const params = {
             "email_id": userEmail,
-            "message": `Click on this link to reset your password : ${userLink}`
+            "message": `Click on this link to reset your password : ${userLink} (This link will be active only for 5 minutes)`
         }
         emailjs.send(serviceId, templateId, params).then(function (res) {
             console.log(res);

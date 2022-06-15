@@ -35,7 +35,8 @@
                     <div class="create-story-form">
                         <form action="/posts" method="post">
                             <input type="text" placeholder="Write a subject" name="subject" required>
-                            <textarea name="story" cols="30" rows="10" placeholder="Write your story here" required></textarea>
+                            <textarea name="story" cols="30" rows="10" placeholder="Write your story here"
+                                required></textarea>
                             <button type="submit">Post</button>
                         </form>
                     </div>
@@ -87,7 +88,7 @@
                 </div>
 
                 <div class="stories-collection" id="other-stories-collection">
-<!-- 
+                    <!-- 
                     <div class="story-box">
                         <div class="story-subject">2 dine 30kg bariye felechi</div>
                         <div class="story-description">Hii guys... This is Rajdeep Mallick ...I want to share my weight
@@ -196,28 +197,28 @@
 
 
                 var userId;
-                const userMe = fetch("/user/me").then((result)=>{
+                const userMe = fetch("/user/me").then((result) => {
                     return result.json();
-                }).then((result)=>{
+                }).then((result) => {
                     userId = result._id;
-                })
+                    // })
 
 
-                const otherStories = fetch("/posts").then((result) => {
-                    return result.json();
-                }).then((results) => {
-                    // console.log(results);
-                    
-                    function checkOtherPost(post){
-                        return post.author._id != userId;
-                    }
-                    
-                    var sixPosts_others = results.filter(checkOtherPost);
-                    // console.log(sixPosts_others);
-                    
-                    if (sixPosts_others.length > 6) {
-                        sixPosts_others = results.slice(0, 6);
-                    }
+                    const otherStories = fetch("/posts").then((result) => {
+                        return result.json();
+                    }).then((results) => {
+                        // console.log(results);
+
+                        function checkOtherPost(post) {
+                            return post.author._id != userId;
+                        }
+
+                        var sixPosts_others = results.filter(checkOtherPost);
+                        // console.log(sixPosts_others);
+
+                        if (sixPosts_others.length > 6) {
+                            sixPosts_others = results.slice(0, 6);
+                        }
 
                         sixPosts_others.forEach((result) => {
 
@@ -252,7 +253,7 @@
                             const authorDiv = document.createElement("div");
                             authorDiv.classList.add("author");
 
-                            
+
                             authorDiv.innerHTML = result.author.fullname;
 
 
@@ -265,12 +266,13 @@
 
 
                         })
-                    // }
+                        // }
 
 
 
-                }).catch((err) => {
-                    console.log(err);
+                    }).catch((err) => {
+                        console.log(err);
+                    })
                 })
             </script>
 
