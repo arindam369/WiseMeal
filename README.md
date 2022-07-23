@@ -11,7 +11,7 @@
   * Viewing/updating personal information
   * Track their food (breakfast, lunch, dinner)
   * Set their weight goal
-  * Share their achievement stories to other users
+  * Share their achievement stories with other users
   * View stories of other users and delete past unnecessary stories
   * Reset their password using the Forgot Password option
   
