@@ -1,98 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WiseMeal | Home</title>
 
-    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
-        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="shortcut icon" href="./static/favicon.png" type="image/x-icon" />
 
-        
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-(function(){
-  emailjs.init("2so94PKLCGM1_LWoB");
-})();
-</script>
+      (function () {
+        emailjs.init("2so94PKLCGM1_LWoB");
+      })();
+    </script>
 
-    <link rel="stylesheet" href="./home.css">
-</head>
+    <link rel="stylesheet" href="./home.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- NavBar1 ================================================== -->
     <%- include('../partials/nav1.ejs') %>
 
-        <!-- NavBar2 ================================================== -->
+    <!-- NavBar2 ================================================== -->
 
-        <!-- <%- include('../partials/nav2.ejs') %> -->
+    <!-- <%- include('../partials/nav2.ejs') %> -->
 
+    <!-- Home Page ================================================= -->
+    <%- include('../partials/home.ejs') %>
 
-        <!-- Home Page ================================================= -->
-        <%- include('../partials/home.ejs') %>
+    <!-- Benefits page ============================================= -->
+    <%- include('../partials/benefits.ejs') %>
 
-            <!-- Benefits page ============================================= -->
-            <%- include('../partials/benefits.ejs') %>
+    <!-- How it works =========================================== -->
+    <%- include('../partials/steps.ejs') %>
 
-                <!-- How it works =========================================== -->
-                <%- include('../partials/steps.ejs') %>
+    <!-- Tools & Features Page =========================== -->
+    <%- include('../partials/tools.ejs') %>
 
-                    <!-- Tools & Features Page =========================== -->
-                    <%- include('../partials/tools.ejs') %>
+    <!-- Contact Page ==================================== -->
+    <%- include('../partials/contact.ejs') %>
 
+    <!-- Footer Page ==================================== -->
+    <%- include('../partials/footer.ejs') %>
 
+    <div id="user-id" style="display: none"><%= USER_ID %></div>
+    <div id="service" style="display: none"><%= SERVICE_ID %></div>
+    <div id="template" style="display: none"><%= TEMPLATE_ID %></div>
 
-                        <!-- Contact Page ==================================== -->
-                        <%- include('../partials/contact.ejs') %>
+    <script>
+      const contactform = document.getElementById("contactform");
+      const userID = document.getElementById("user-id").innerHTML.trim();
+      const serviceID = document.getElementById("service").innerHTML.trim();
+      const templateID = document.getElementById("template").innerHTML.trim();
 
-                            <!-- Footer Page ==================================== -->
-                            <%- include('../partials/footer.ejs') %>
-
-                                <div id="user-id" style="display: none;">
-                                    <%= USER_ID %>
-                                </div>
-                                <div id="service" style="display: none;">
-                                    <%= SERVICE_ID %>
-                                </div>
-                                <div id="template" style="display: none;">
-                                    <%= TEMPLATE_ID %>
-                                </div>
-
-
-                                <script>
-                                    const contactform = document.getElementById("contactform");
-                                    const userID = document.getElementById("user-id").innerHTML.trim();
-                                    const serviceID = document.getElementById("service").innerHTML.trim();
-                                    const templateID = document.getElementById("template").innerHTML.trim();
-
-
-
-                                    contactform.addEventListener("submit", function (e) {
-                                        var params = {
-                                            from_name: e.srcElement[0].value,
-                                            email_id: e.srcElement[2].value,
-                                            message: e.srcElement[3].value
-                                        };
-                                        emailjs.init(userID);
-                                        emailjs.send(serviceID, templateID, params).then(function (res) {
-                                            console.log(res);
-                                            alert("sent successfully");
-                                        },
-                                            reason => {
-                                                alert("Error occured");
-                                            })
-                                    })
-                                </script>
-
-
-
-</body>
-
+      contactform.addEventListener("submit", function (e) {
+        var params = {
+          from_name: e.srcElement[0].value,
+          email_id: e.srcElement[2].value,
+          message: e.srcElement[3].value,
+        };
+        emailjs.init(userID);
+        emailjs.send(serviceID, templateID, params).then(
+          function (res) {
+            console.log(res);
+            alert("sent successfully");
+          },
+          (reason) => {
+            alert("Error occured");
+          }
+        );
+      });
+    </script>
+  </body>
 </html>

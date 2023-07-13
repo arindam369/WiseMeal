@@ -38,7 +38,6 @@ router.get("/posts", auth, async (req,res)=>{
         var post = allOtherPosts[i];
         await post.populate('author');
         if(post.author === req.user){
-            console.log("Arindam created");
             allPosts.slice(i,1);
         }
     }
