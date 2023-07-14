@@ -48,13 +48,14 @@
             "message": `Click on this link to reset your password : ${userLink} (This link will be active only for 5 minutes)`
         }
         emailjs.send(serviceId, templateId, params).then(function (res) {
-            console.log(res);
+            // console.log(res);
             alert(`Reset link sent to the email : ${userEmail}`);
         },
-            reason => {
-                alert("Error occured");
-                console.log("Error");
-            })
+        reason => {
+            // console.log(reason);
+            alert("Error occured");
+            // console.log("Error");
+        })
 
     </script>
 </body>

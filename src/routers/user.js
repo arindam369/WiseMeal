@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 // create user=============================
 router.post("/users", function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     const newuser = new User(req.body);
     newuser.save().then(function (result) {
         res.redirect("/login");
@@ -146,7 +146,7 @@ router.get("/user/me", auth, async function (req, res) {
 router.post("/user/isOldUser", async (req, res) => {
     try {
         const isOldUser = await User.checkLoginCredentials(req.body.email, req.body.pass);
-        console.log(isOldUser);
+        // console.log(isOldUser);
         if (isOldUser) {
 
             return res.send(isOldUser);
@@ -175,7 +175,7 @@ router.get("/apiquery", auth, async (req, res) => {
             lstring: me.lstring,
             dstring: me.dstring
         }
-        console.log(ans);
+        // console.log(ans);
         res.send(ans);
     } catch (err) {
         console.log(err);
@@ -258,10 +258,10 @@ const upload = multer({
 
 // here we are uploading avatar in our mongodb database :
 router.post("/user/me/avatar", auth, upload.single("Avatar"), async (req,res)=>{
-    console.log(req.file.buffer);
+    // console.log(req.file.buffer);
     req.user.avatar = req.file.buffer;
     await req.user.save();
-    console.log("Avatar saved");
+    // console.log("Avatar saved");
     res.redirect("/profile");
 },(error,req,res,next)=>{
     console.log("Error");

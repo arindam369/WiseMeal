@@ -40,5 +40,5 @@ b) **Logout of all sessions** :  It’ll log out the user from every devices.<br
   
 <br/> <br/>
 ## Links:
-**Link to the website:** &nbsp; https://wisemeal.herokuapp.com/  <br/>
+**Link to the website:** &nbsp; https://wisemeal.onrender.com  <br/>
 **Project demo video:** &nbsp; https://www.youtube.com/watch?v=_UV2f7as1so

@@ -77,7 +77,7 @@
         emailjs.init(userID);
         emailjs.send(serviceID, templateID, params).then(
           function (res) {
-            console.log(res);
+            // console.log(res);
             alert("sent successfully");
           },
           (reason) => {
